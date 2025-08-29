@@ -1,0 +1,7 @@
+.tz-header {
+    @apply block bg-gradient-to-t from-gray-900 to-gray-800 text-white rounded-b-2xl p-5;
+
+    section {
+        @apply mx-auto max-w-5xl flex justify-between items-center;
+    }
+}

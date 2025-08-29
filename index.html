@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="http://localhost/framework/iconos/material-icons/material-icons.css">
+    <link rel="stylesheet" href="assets/ui/tw.css">
+    <link rel="stylesheet" href="assets/ui/main.css">
+    <link rel="stylesheet" href="assets/vendor/devicon/devicon.css">
+</head>
+<body class="index">
+    <div id="app">
+        <tz-header></tz-header>
+        <tz-frontanimate></tz-frontanimate>
+        <main class="relative -mt-10">
+            <section class="flex flex-wrap gap-5 mx-auto max-w-5xl">
+                <div class="w-[320px]">
+                    <div class="sticky top-5">
+                        <figure class="im-phone">
+                            <div class="im-phone-cam"></div>
+                            <div class="im-btns-vol"></div>
+                            <header class="im-phone-header">
+                                <ul>
+                                    <li>
+                                        <i class="mir mi-network_cell"></i>
+                                        <span>5G</span>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li>
+                                        <i class="mir mi-wifi"></i>
+                                    </li>
+                                </ul>
+                            </header>
+                            <div class="im-phone-body">
+                                <section class="im-phone-timer">
+                                    <span class="timer-hour">12</span>
+                                    <div class="timer-minutes">
+                                        <span>:02</span>
+                                        <span>AM</span>
+                                    </div>
+                                </section>
+                                <ul class="im-phone-menu">
+                                    <li v-for="item in 6">
+                                        <button type="button">
+                                            <i class="mir mi-home"></i>
+                                            <p>lorem</p>
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </figure>
+                    </div>
+                </div>
+                <div class="grow basis-0">
+                    <div class="block">
+                        <header class="tz-header-chat mb-4">
+                            <div class="flex items-center gap-4">
+                                <figure class="tw-avatar rounded-full border-3 border-gray-600">
+                                    <img class="rounded-full" src="assets/img/traziall-2-logo.jpg" alt="">
+                                </figure>
+                                <div class="grow basis-0">
+                                    <h1>Traziall</h1>
+                                    <p class="text-lg">Conversemos...</p>
+                                </div>
+                                <div class="text-xl opacity-25">
+                                    <i class="mir mi-textsms"></i>
+                                </div>
+                            </div>
+                        </header>
+                        <article class="tw-chat">
+                            <template v-if="respuestas.length">
+                                <div class="mb-5 space-y-6">
+                                    <component
+                                        v-for="id in respuestas"
+                                        :is="componentes[id]"
+                                        :key="id"
+                                    ></component>
+                                </div>
+                            </template>
+                            <template v-else>
+                                <div class="w-full h-60 flex justify-center items-center">
+                                    <div class="text-center">
+                                        <span class="text-2xl">
+                                            <i class="mir mi-textsms"></i>
+                                        </span>
+                                        <p>Selecciona una pregunta.</p>
+                                    </div>
+                                </div>
+                            </template>
+                            <nav class="space-y-2">
+                                <template v-for="item in preguntas">
+                                    <button class="btn-question" @click="responder(item.id)" v-if="!item.seleccionado">
+                                        <i class="mir mi-textsms"></i>
+                                        <span>{{ item.label }}</span>
+                                    </button>
+                                </template>
+                                <template v-if="!(preguntas.every(p => p.seleccionado))">
+                                    <button @click="responder(null)">Todo</button>
+                                </template>
+                            </nav>
+                        </article>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="assets/vendor/vue/vue-v3.js"></script>
+    <script type="module" src="assets/vue/index/main.js"></script>
+</body>
+</html>
