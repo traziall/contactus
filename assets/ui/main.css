@@ -231,8 +231,12 @@
   background-color: rgba(0, 0, 0, 0.15);
   width: 100%;
 }
+.im-phone .im-phone-menu button i {
+  font-size: 1.2rem;
+}
 .im-phone .im-phone-menu button p {
-  font-size: 0.7rem;
+  font-size: 0.65rem;
+  margin-top: 0.25rem;
 }
 
 .animate__animated {

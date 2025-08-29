@@ -50,7 +50,7 @@ export const tzAnswerDevapp = {
         <section id="devapp">
             <chat-question theme="red" question="¿Que tipo de aplicaciones desarrollan?"></chat-question>
             <container-chat>
-                <ul class="space-y-6">
+                <ul class="dev-app space-y-6">
                     <template v-for="(item, index) in devApps">
                         <li class="animate__animated backInRight animate__fast" :class="item.delay">
                             <bubble-chat classList="mb-5" :decoration="index === 0" orientation="right">
@@ -59,14 +59,14 @@ export const tzAnswerDevapp = {
                                         <i class="mir" :class="item.icon"></i>
                                     </div>
                                     <div class="grow basis-0 space-y-3">
-                                        <h3 class="text-xl font-semibold">{{ item.name }}</h3>
-                                        <p class="text-gray-400">{{ item.description }}</p>
+                                        <h3 class="text-base md:text-xl font-semibold">{{ item.name }}</h3>
+                                        <p class="text-sm md:text-base text-gray-400">{{ item.description }}</p>
                                     </div>
                                 </div>
                             </bubble-chat>
                             <ul class="ul-decoration">
                                 <template v-for="(feature, index) in item.list">
-                                    <li v-if="feature" class="text-gray-500" :key="index">{{ feature }}</li>
+                                    <li v-if="feature" class="text-sm md:text-base text-gray-500" :key="index">{{ feature }}</li>
                                 </template>
                             </ul>
                         </li>

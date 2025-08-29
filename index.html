@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Traziall - contactanos</title>
     <link rel="stylesheet" href="assets/vendor/material-icons/material-icons.css">
     <link rel="stylesheet" href="assets/ui/tw.css">
     <link rel="stylesheet" href="assets/ui/main.css">
     <link rel="stylesheet" href="assets/vendor/devicon/devicon.css">
+    <link rel="stylesheet" href="assets/vendor/icofont-social/icofont-social.css">
 </head>
 <body class="index">
     <div id="app">
@@ -15,45 +16,12 @@
         <tz-frontanimate></tz-frontanimate>
         <main class="relative -mt-10">
             <section class="flex flex-wrap gap-5 mx-auto max-w-5xl">
-                <div class="w-[320px]">
+                <div class="w-[320px] hidden md:block">
                     <div class="sticky top-5">
-                        <figure class="im-phone">
-                            <div class="im-phone-cam"></div>
-                            <div class="im-btns-vol"></div>
-                            <header class="im-phone-header">
-                                <ul>
-                                    <li>
-                                        <i class="mir mi-network_cell"></i>
-                                        <span>5G</span>
-                                    </li>
-                                </ul>
-                                <ul>
-                                    <li>
-                                        <i class="mir mi-wifi"></i>
-                                    </li>
-                                </ul>
-                            </header>
-                            <div class="im-phone-body">
-                                <section class="im-phone-timer">
-                                    <span class="timer-hour">12</span>
-                                    <div class="timer-minutes">
-                                        <span>:02</span>
-                                        <span>AM</span>
-                                    </div>
-                                </section>
-                                <ul class="im-phone-menu">
-                                    <li v-for="item in 6">
-                                        <button type="button">
-                                            <i class="mir mi-home"></i>
-                                            <p>lorem</p>
-                                        </button>
-                                    </li>
-                                </ul>
-                            </div>
-                        </figure>
+                        <tz-phone />
                     </div>
                 </div>
-                <div class="grow basis-0">
+                <div class="w-full md:grow md:basis-0">
                     <div class="block">
                         <header class="tz-header-chat mb-4">
                             <div class="flex items-center gap-4">

@@ -52,3 +52,11 @@
 .aspect-4xl {
     --tw-aspect-size: 155px;
 }
+
+@media (max-width: 640px) {
+    .dev-app {
+        .tw-icono {
+            --tw-aspect-size: 50px;
+        }
+    }
+}

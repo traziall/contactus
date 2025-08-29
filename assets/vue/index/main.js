@@ -6,6 +6,7 @@ const { createApp } = Vue;
 import { clientEvent } from './helpers.js';
 import { answerSkills } from './components/answer-skills.js';
 import { answerSchedule } from './components/answer-schedule.js';
+import { tzPhone } from './components/tz-phone.js';
 
 createApp({
     components: {
@@ -14,7 +15,8 @@ createApp({
         "answer-us": tzAnswerUs,
         "answer-devapp": tzAnswerDevapp,
         "answer-skills": answerSkills,
-        "answer-schedule": answerSchedule
+        "answer-schedule": answerSchedule,
+        "tz-phone": tzPhone,
     },
     data() {
         return {
@@ -22,7 +24,7 @@ createApp({
                 { id: 'us', label: '¿Quienes son?', seleccionado: false },
                 { id: 'devapp', label: '¿Que tipo de aplicaciones desarrollan?', seleccionado: false },
                 { id: 'skills', label: '¿Qué tecnologías dominan?', seleccionado: false },
-                { id: 'schedule', label: '¿Como nos organiamos en el proyecto?', seleccionado: false },
+                { id: 'schedule', label: '¿Como nos organizamos en el proyecto?', seleccionado: false },
             ],
             componentes: {
                 us: 'answer-us',

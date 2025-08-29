@@ -5,7 +5,7 @@
     }
     &:hover {
         i {
-            @apply text-red-500;
+            @apply md:text-red-500;
         }
     }
 }

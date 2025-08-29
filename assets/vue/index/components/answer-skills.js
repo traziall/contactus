@@ -49,7 +49,7 @@ export const answerSkills = {
                         </figure>
                     </div>
                 </div>
-                <ul class="grid grid-cols-2 gap-4">
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <template v-for="item in currentSkills">
                         <li class="flex p-4 gap-5 items-center bg-gray-800 shadow-md shadow-gray-800 rounded-lg">
                             <div class="text-3xl">

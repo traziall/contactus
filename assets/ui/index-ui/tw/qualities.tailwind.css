@@ -1,7 +1,7 @@
 .tz-qualities {
     @apply relative flex items-center;
     img {
-        @apply h-[380px] z-[1];
+        @apply h-[280px] sm:h-[330px] md:h-[380px] z-[1];
     }
     ul {
         @apply flex flex-wrap flex-col gap-5 absolute w-full;
@@ -11,7 +11,7 @@
                 animation-duration: 8s;
                 animation-fill-mode: both;
                 animation-iteration-count: infinite;
-                @apply w-full block px-6 py-2 rounded-full bg-gray-400 text-lg font-semibold;
+                @apply w-full block px-6 py-2 rounded-md md:rounded-full bg-gray-400 text-sm sm:text-base md:text-lg font-semibold;
             }
             &:nth-child(1) p {
                 @apply bg-gradient-to-r from-purple-600 to-pink-400;
@@ -39,38 +39,38 @@
                 @apply mr-20;
             }
             &:nth-child(1) p {
-                @apply w-[200px];
+                @apply sm:w-[200px];
             }
             &:nth-child(2) p {
-                @apply w-[400px];
+                @apply sm:w-[400px];
             }
             &:nth-child(3) p {
-                @apply w-[440px];
+                @apply sm:w-[440px];
             }
             &:nth-child(4) p {
-                @apply w-[400px];
+                @apply sm:w-[400px];
             }
         }
     }
     &.__crow177 {
-        @apply -mt-10 justify-start;
+        @apply mt-0 md:-mt-10 justify-start;
         li {
             @apply justify-start;
             p {
                 animation-name: pulseRight;
-                @apply ml-32;
+                @apply ml-20 sm:ml-32;
             }
             &:nth-child(1) p {
-                @apply w-[180px];
+                @apply sm:w-[180px];
             }
             &:nth-child(2) p {
-                @apply w-[460px];
+                @apply sm:w-[460px];
             }
             &:nth-child(3) p {
-                @apply w-[380px];
+                @apply sm:w-[380px];
             }
             &:nth-child(4) p {
-                @apply w-[360px];
+                @apply sm:w-[360px];
             }
         }
     }
@@ -91,5 +91,13 @@
     }
     95% {
         transform: translateX(15px);
+    }
+}
+
+@media (max-width: 640px) {
+    .tz-qualities {
+        ul li > p {
+            animation: none;
+        }
     }
 }
