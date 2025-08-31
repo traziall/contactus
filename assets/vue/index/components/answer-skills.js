@@ -26,7 +26,7 @@ export const answerSkills = {
                 { name: 'Nest', icon: 'devicon-nestjs-plain', porcent: 80 },
                 { name: 'UI/UX', icon: 'devicon-figma-plain', porcent: 89 },
                 { name: 'Laravel', icon: 'devicon-laravel-plain', porcent: 75 },
-                { name: '.NET', icon: 'devicon-dotnetcore-plain', porcent: 82 },
+                { name: '.NET, C# y ASP.NET core', icon: 'devicon-dotnetcore-plain', porcent: 82 },
             ]
         }
     }),

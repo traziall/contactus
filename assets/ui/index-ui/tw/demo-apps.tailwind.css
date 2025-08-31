@@ -17,4 +17,13 @@
             @apply border cursor-pointer border-gray-700 active:mb-[2px] active:translate-y-[2px] active:border-b-2 border-b-4 py-1 leading-0 px-3 rounded-md;
         }
     }
+    .features {
+        @apply grid grid-cols-1 md:grid-cols-2 gap-2;
+        button {
+            @apply flex items-center py-1 px-2 border border-b-2 rounded-md border-transparent cursor-pointer;
+            &.active {
+                @apply border-gray-600 bg-gray-900;
+            }
+        }
+    }
 }

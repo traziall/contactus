@@ -9,6 +9,7 @@ import { answerSchedule } from './components/answer-schedule.js';
 import { answerIndustries } from './components/answer-industries.js';
 import { tzPhone } from './components/tz-phone.js';
 import { tzFooter } from './components/tz-footer.js';
+import { tzDemoapps } from './components/tz-demoapps.js';
 
 createApp({
     components: {
@@ -21,6 +22,7 @@ createApp({
         "answer-schedule": answerSchedule,
         "answer-industries": answerIndustries,
         "tz-phone": tzPhone,
+        "tz-demoapps": tzDemoapps,
     },
     data() {
         return {
