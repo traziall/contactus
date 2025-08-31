@@ -223,17 +223,21 @@
   gap: 15px;
   grid-template-columns: repeat(3, 1fr);
 }
+.im-phone .im-phone-menu a,
 .im-phone .im-phone-menu button {
   display: block;
+  text-align: center;
   padding: 13px 10px;
   border-radius: 10px;
   line-height: 1;
   background-color: rgba(0, 0, 0, 0.15);
   width: 100%;
 }
+.im-phone .im-phone-menu a i,
 .im-phone .im-phone-menu button i {
   font-size: 1.2rem;
 }
+.im-phone .im-phone-menu a p,
 .im-phone .im-phone-menu button p {
   font-size: 0.65rem;
   margin-top: 0.25rem;

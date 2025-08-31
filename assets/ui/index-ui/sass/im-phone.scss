@@ -103,8 +103,10 @@
         display: grid;
         gap: 15px;
         grid-template-columns: repeat(3, 1fr);
+        a,
         button {
             display: block;
+            text-align: center;
             padding: 13px 10px;
             border-radius: 10px;
             line-height: 1;

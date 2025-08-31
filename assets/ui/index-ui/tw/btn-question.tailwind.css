@@ -8,6 +8,9 @@
             @apply md:text-red-500;
         }
     }
+    &.center {
+        @apply justify-center;
+    }
 }
 
 .ul-decoration {

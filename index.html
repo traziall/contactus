@@ -15,7 +15,7 @@
         <tz-header></tz-header>
         <tz-frontanimate></tz-frontanimate>
         <main class="relative -mt-10">
-            <section class="flex flex-wrap gap-5 mx-auto max-w-5xl">
+            <section class="flex flex-wrap gap-5 mx-auto max-w-5xl mb-10">
                 <div class="w-[320px] hidden md:block">
                     <div class="sticky top-5">
                         <tz-phone />
@@ -65,12 +65,15 @@
                                     </button>
                                 </template>
                                 <template v-if="!(preguntas.every(p => p.seleccionado))">
-                                    <button @click="responder(null)">Todo</button>
+                                    <button type="button" class="btn-question center" @click="responder(null)">Ver todo</button>
                                 </template>
                             </nav>
                         </article>
                     </div>
                 </div>
+            </section>
+            <section>
+                d
             </section>
         </main>
     </div>

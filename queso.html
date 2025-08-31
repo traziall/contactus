@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Slider Infinito con Anime.js</title>
+    <style>
+        .slider {
+            width: 80%;
+            overflow: hidden;
+        }
+
+        .track {
+            --gap: 10px;
+            display: flex;
+            gap: var(--gap);
+        }
+
+        .item {
+            flex: 0 0 calc((100% / 4.5) - (var(--gap) * 4 / 4.5));
+            height: 120px;
+            display: block;
+            background: #333;
+            color: #fff;
+            font-size: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slider">
+        <div class="track">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+            <div class="item">6</div>
+            <div class="item">7</div>
+        </div>
+    </div>
+
+    <!-- Anime.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script>
+        const track = document.querySelector('.track');
+        const gap = 10; // igual que en CSS
+        const item = document.querySelector('.item');
+        const itemWidth = item.offsetWidth + gap;
+
+        function moveSlider(direction = 'left') {
+            if (direction === 'right') {
+                // 🔹 Insertar el último item al inicio ANTES de animar
+                track.insertBefore(track.lastElementChild, track.firstElementChild);
+                // Colocar el track desplazado a la izquierda
+                track.style.transform = `translateX(-${itemWidth}px)`;
+            }
+
+            let translateX = (direction === 'left') ? -itemWidth : 0;
+
+            anime({
+                targets: track,
+                translateX: translateX,
+                duration: 600,
+                easing: 'easeInOutQuad',
+                complete: () => {
+                    if (direction === 'left') {
+                        track.appendChild(track.firstElementChild);
+                        track.style.transform = "translateX(0)";
+                    }
+                }
+            });
+        }
+
+        // autoplay cada 2s
+        setInterval(() => moveSlider('right'), 3000);
+    </script>
+</body>
+
+</html>

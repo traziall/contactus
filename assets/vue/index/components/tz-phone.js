@@ -3,25 +3,25 @@ export const tzPhone = {
         btns: [
             {
                 target: true,
-                path: '',
+                path: 'https://www.youtube.com/@traziall',
                 label: 'Youtube',
                 icon: 'icofont-youtube'
             },
             {
                 target: true,
-                path: '',
+                path: 'https://www.facebook.com/traziall',
                 label: 'Facebook',
                 icon: 'icofont-facebook'
             },
             {
                 target: true,
-                path: '',
+                path: 'https://x.com/traziall',
                 label: 'X',
                 icon: 'icofont-x'
             },
             {
                 target: true,
-                path: '',
+                path: 'https://www.instagram.com/apockgraficos',
                 label: 'instagram',
                 icon: 'icofont-instagram'
             },
@@ -54,10 +54,10 @@ export const tzPhone = {
             </section>
             <ul class="im-phone-menu">
                 <li v-for="item in btns">
-                    <button type="button">
+                    <a :href="item.path" :target="item.target ? '_blank' : '_self'">
                         <i :class="item.icon"></i>
                         <p>{{ item.label }}</p>
-                    </button>
+                    </a>
                 </li>
             </ul>
         </div>

@@ -12,11 +12,11 @@ export const tzAnswerDevapp = {
         devApps: [
             {
                 icon: 'mi-laptop_mac',
-                name: 'Aplicaciones Web',
-                description: 'Diseñamos y desarrollamos aplicaciones web responsivas y escalables.',
+                name: 'Aplicaciones Web/Desktop',
+                description: 'Diseñamos y desarrollamos aplicaciones escalables web y de escritorio.',
                 list: [
                     'HTML5, CSS3, JavaScript',
-                    'Frameworks modernos como Vue.js y Angular',
+                    'Frameworks modernos como Vue, Angular y Electron',
                     'Integración con APIs y servicios externos'
                 ],
                 delay: 'animate__delay-0.5'
