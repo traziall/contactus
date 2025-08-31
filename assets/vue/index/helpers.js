@@ -32,7 +32,7 @@ export const socials = [
     },
     {
         target: true,
-        path: 'https://www.instagram.com/apockgraficos',
+        path: 'https://www.instagram.com/trazi.all',
         label: 'instagram',
         icon: 'icofont-instagram',
         color: '#d946ef'

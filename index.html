@@ -74,23 +74,54 @@
                     </div>
                 </div>
             </section>
-        </main>
-        <footer class="block pb-6 border-t border-gray-800 px-4">
-            <div class="max-w-5xl mx-auto bg-gray-800 rounded-b-md p-4 grid grid-cols-2 gap-3 items-center">
-                <div>
-                    <p>Traziall</p>
+            <section class="tz-demoapps" style="background-image: url('./assets/img/fondo-cuadrillos.png');">
+                <div class="body">
+                    <menu>
+                        <button type="button">
+                            Características
+                        </button>
+                    </menu>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 px-2">
+                        <div class="nav">
+                            <ul>
+                                <li class="mb-2 text-gray-400">Demostraciones de características que logramos crear para una aplicación excepcional</li>
+                                <li class="flex items-center">
+                                    <i class="mir mi-home text-red-500"></i>
+                                    <span class="font-semibold ml-2">Lorem</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="watch">
+                            <div class="block bg-gray-800 border border-gray-700 rounded-md">
+                                <header class="flex justify-between">
+                                    <div class="flex gap-3 p-2">
+                                        <div class="tw-icon">
+                                            <i class="mi mi-home"></i>
+                                        </div>
+                                        <div>
+                                            <h6>Queso ipsum dolore</h6>
+                                            <p class="text-sm text-gray-400">Lorem ipsum dolor, sit amet.</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex justify-end gap-2 p-3">
+                                        <button type="button">
+                                            <i class="mir mi-chevron_left"></i>
+                                        </button>
+                                        <button type="button">
+                                            <i class="mir mi-chevron_right"></i>
+                                        </button>
+                                    </div>
+                                </header>
+                                <div>
+                                    <img src="assets/img/exp_screenshot_dark_a595173bb4.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <ul class="flex justify-end gap-3 items-center">
-                    <template v-for="item in redes">
-                        <li>
-                            <a class="inline-block py-1 px-2 bg-gray-700 rounded-md shadow-md" target="_blank" :href="item.path">
-                                <i :class="item.icon" :style="{ color: item.color }"></i>
-                            </a>
-                        </li>
-                    </template>
-                </ul>
-            </div>
-        </footer>
+            </section>
+        </main>
+        <tz-footer></tz-footer>
     </div>
     <script src="assets/vendor/vue/vue-v3.js"></script>
     <script type="module" src="assets/vue/index/main.js"></script>

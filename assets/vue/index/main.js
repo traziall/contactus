@@ -3,14 +3,16 @@ import { tzFrontanimate } from './components/tz-fronanimate.js';
 import { tzAnswerUs } from './components/answer-us.js';
 import { tzAnswerDevapp } from './components/answer-devapp.js';
 const { createApp } = Vue;
-import { clientEvent, socials } from './helpers.js';
+import { clientEvent } from './helpers.js';
 import { answerSkills } from './components/answer-skills.js';
 import { answerSchedule } from './components/answer-schedule.js';
 import { answerIndustries } from './components/answer-industries.js';
 import { tzPhone } from './components/tz-phone.js';
+import { tzFooter } from './components/tz-footer.js';
 
 createApp({
     components: {
+        "tz-footer": tzFooter,
         "tz-header": tzHeader,
         "tz-frontanimate": tzFrontanimate,
         "answer-us": tzAnswerUs,
@@ -36,8 +38,7 @@ createApp({
                 schedule: 'answer-schedule',
                 industries: 'answer-industries'
             },
-            respuestas: [],
-            redes: socials
+            respuestas: []
         };
     },
     methods: {
