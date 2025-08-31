@@ -1,31 +1,8 @@
+import { socials } from '../helpers.js';
+
 export const tzPhone = {
     data: () => ({
-        btns: [
-            {
-                target: true,
-                path: 'https://www.youtube.com/@traziall',
-                label: 'Youtube',
-                icon: 'icofont-youtube'
-            },
-            {
-                target: true,
-                path: 'https://www.facebook.com/traziall',
-                label: 'Facebook',
-                icon: 'icofont-facebook'
-            },
-            {
-                target: true,
-                path: 'https://x.com/traziall',
-                label: 'X',
-                icon: 'icofont-x'
-            },
-            {
-                target: true,
-                path: 'https://www.instagram.com/apockgraficos',
-                label: 'instagram',
-                icon: 'icofont-instagram'
-            },
-        ]
+        btns: socials
     }),
     template: /* html */`
     <figure class="im-phone">

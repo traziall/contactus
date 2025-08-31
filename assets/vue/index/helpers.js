@@ -7,3 +7,34 @@ export const clientEvent = {
         }
     }
 }
+
+export const socials = [
+    {
+        target: true,
+        path: 'https://www.youtube.com/@traziall',
+        label: 'Youtube',
+        icon: 'icofont-youtube',
+        color: '#ef4444'
+    },
+    {
+        target: true,
+        path: 'https://www.facebook.com/traziall',
+        label: 'Facebook',
+        icon: 'icofont-facebook',
+        color: '#3b82f6'
+    },
+    {
+        target: true,
+        path: 'https://x.com/traziall',
+        label: 'X',
+        icon: 'icofont-x',
+        color: ''
+    },
+    {
+        target: true,
+        path: 'https://www.instagram.com/apockgraficos',
+        label: 'instagram',
+        icon: 'icofont-instagram',
+        color: '#d946ef'
+    },
+];

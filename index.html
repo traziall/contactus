@@ -13,8 +13,10 @@
 <body class="index">
     <div id="app">
         <tz-header></tz-header>
-        <tz-frontanimate></tz-frontanimate>
-        <main class="relative -mt-10">
+        <div class="hidden md:block">
+            <tz-frontanimate></tz-frontanimate>
+        </div>
+        <main class="relative mt-3 md:-mt-10">
             <section class="flex flex-wrap gap-5 mx-auto max-w-5xl mb-10">
                 <div class="w-[320px] hidden md:block">
                     <div class="sticky top-5">
@@ -72,10 +74,23 @@
                     </div>
                 </div>
             </section>
-            <section>
-                d
-            </section>
         </main>
+        <footer class="block pb-6 border-t border-gray-800 px-4">
+            <div class="max-w-5xl mx-auto bg-gray-800 rounded-b-md p-4 grid grid-cols-2 gap-3 items-center">
+                <div>
+                    <p>Traziall</p>
+                </div>
+                <ul class="flex justify-end gap-3 items-center">
+                    <template v-for="item in redes">
+                        <li>
+                            <a class="inline-block py-1 px-2 bg-gray-700 rounded-md shadow-md" target="_blank" :href="item.path">
+                                <i :class="item.icon" :style="{ color: item.color }"></i>
+                            </a>
+                        </li>
+                    </template>
+                </ul>
+            </div>
+        </footer>
     </div>
     <script src="assets/vendor/vue/vue-v3.js"></script>
     <script type="module" src="assets/vue/index/main.js"></script>
