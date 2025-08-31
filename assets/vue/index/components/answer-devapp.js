@@ -48,7 +48,7 @@ export const tzAnswerDevapp = {
     }),
     template: /* html */`
         <section id="devapp">
-            <chat-question theme="red" question="¿Que tipo de aplicaciones desarrollan?"></chat-question>
+            <chat-question id="#devapp" theme="red" question="¿Que tipo de aplicaciones desarrollan?"></chat-question>
             <container-chat>
                 <ul class="dev-app space-y-6">
                     <template v-for="(item, index) in devApps">

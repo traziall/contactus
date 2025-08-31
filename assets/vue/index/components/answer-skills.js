@@ -32,7 +32,7 @@ export const answerSkills = {
     }),
     template: /* html */`
         <section id="skills">
-            <chat-question theme="red" question="¿Qué tecnologías dominan?"></chat-question>
+            <chat-question id="#skills" theme="red" question="¿Qué tecnologías dominan?"></chat-question>
             <container-chat>
                 <bubble-chat classList="mb-6 animate__animated backInRight animate__fast" decoration orientation="right">
                     <p>Las Tecnologías que dominamos para crear, optimizar y dar vida a tus ideas.</p>

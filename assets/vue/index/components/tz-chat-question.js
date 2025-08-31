@@ -12,6 +12,10 @@ export const tzChatQuestion = {
         theme: {
             type: String,
             default: () => 'Pregunta'
+        },
+        id: {
+            type: String,
+            default: () => '#'
         }
     },
     template: /* html */`
@@ -22,11 +26,11 @@ export const tzChatQuestion = {
                     <img class="rounded-full" src="assets/img/traziall-2-logo.jpg" alt="">
                 </figure>
             </div>
-            <div>
+            <a :href="id">
                 <bubble-chat decoration orientation="left" :theme="theme">
                     {{ question }}
                 </bubble-chat>
-            </div>
+            </a>
         </div>
     </section>
     `,

@@ -68,7 +68,7 @@ export const answerIndustries = {
     }),
     template: /* html */`
         <section id="industries">
-            <chat-question theme="red" question="¿En qué sectores tienen experiencia?"></chat-question>
+            <chat-question id="#industries" theme="red" question="¿En qué sectores tienen experiencia?"></chat-question>
             <container-chat>
                 <bubble-chat classList="mb-6 animate__animated backInRight animate__fast" decoration orientation="right">
                     <p>Hemos trabajado en proyectos para diferentes sectores como:</p>

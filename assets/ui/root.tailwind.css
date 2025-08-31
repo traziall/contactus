@@ -13,7 +13,7 @@
 }
 
 body.index {
-    @apply bg-gray-900 text-white;
+    @apply bg-gray-900 text-white scroll-smooth;
 }
 
 .d-grid {

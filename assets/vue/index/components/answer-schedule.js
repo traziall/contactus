@@ -65,7 +65,7 @@ export const answerSchedule = {
     }),
     template: /* html */`
         <section id="schedule">
-            <chat-question theme="red" question="¿Como nos organizamos en el proyecto?"></chat-question>
+            <chat-question id="#schedule" theme="red" question="¿Como nos organizamos en el proyecto?"></chat-question>
             <container-chat>
                 <bubble-chat classList="mb-6 animate__animated backInRight animate__fast" decoration orientation="right">
                     <p>El cronograma de organizacion es el siguiente:</p>

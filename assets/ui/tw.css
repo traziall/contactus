@@ -969,6 +969,7 @@
   }
 }
 body.index {
+  scroll-behavior: smooth;
   background-color: var(--color-gray-900);
   color: var(--color-white);
 }

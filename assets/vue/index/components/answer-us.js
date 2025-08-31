@@ -10,7 +10,7 @@ export const tzAnswerUs = {
     },
     template: /* html */`
         <section id="us">
-            <chat-question theme="red" question="¿Quienes son?"></chat-question>
+            <chat-question id="#us" theme="red" question="¿Quienes son?"></chat-question>
             <container-chat>
                 <bubble-chat classList="mb-2 animate__animated backInRight animate__fast" decoration orientation="right">
                     <h3 class="-mt-6 mb-2 text-xl uppercase font-bold">Somos</h3>
