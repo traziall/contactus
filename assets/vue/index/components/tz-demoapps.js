@@ -6,25 +6,25 @@ export const tzDemoapps = {
                 name: "Gráficas y Estadísticas",
                 description: "Visualización de datos en tiempo real con métricas interactivas.",
                 icon: "insights",
-                img: '',
+                img: 'ui-6.jpg',
                 category: "charts",
                 color: "text-blue-500",
                 assets: [
                     { name: "Tiempo real", description: "Datos actualizados dinámicamente", icon: "update" },
-                    { name: "Interactividad", description: "Zoom, filtros y selección de rangos", icon: "touch_app" }
+                    { name: "Interactividad", description: "Filtros y selecciones", icon: "touch_app" }
                 ]
             },
             {
                 id: 2,
-                name: "Tableros Personalizados",
+                name: "Dashboard a medida",
                 description: "Paneles dinámicos que combinan distintos widgets y KPIs.",
                 icon: "dashboard",
-                img: '',
+                img: 'ui-4.png',
                 category: "charts",
                 color: "text-green-500",
                 assets: [
-                    { name: "Widgets", description: "Componentes modulares y reordenables", icon: "view_quilt" },
-                    { name: "KPIs", description: "Indicadores clave visibles en todo momento", icon: "analytics" }
+                    { name: "Widgets", description: "Componentes modulares", icon: "view_quilt" },
+                    { name: "KPIs", description: "Indicadores y métricas estratégicas", icon: "analytics" }
                 ]
             },
 
@@ -103,8 +103,8 @@ export const tzDemoapps = {
                 category: "interfaces",
                 color: "text-cyan-500",
                 assets: [
-                    { name: "Mobile First", description: "Diseño optimizado para móviles", icon: "phone_iphone" },
-                    { name: "Desktop Friendly", description: "Experiencia completa en escritorio", icon: "computer" }
+                    { name: "Mobile", description: "Diseño optimizado para móviles", icon: "phone_iphone" },
+                    { name: "Desktop", description: "Experiencia completa en escritorio", icon: "computer" }
                 ]
             },
             {
@@ -153,7 +153,7 @@ export const tzDemoapps = {
                 name: "Soporte Multilenguaje",
                 description: "Aplicaciones adaptadas a diferentes idiomas y regiones.",
                 icon: "translate",
-                img: '',
+                img: 'ui-5.png',
                 category: "extras",
                 color: "text-emerald-600",
                 assets: [
@@ -205,7 +205,7 @@ export const tzDemoapps = {
                     <div class="watch">
                         <div class="block bg-gray-800 border border-gray-700 rounded-md">
                             <header class="flex justify-between pb-3">
-                                <div class="flex gap-3 p-2">
+                                <div class="grow basis-0 flex gap-3 p-2">
                                     <div class="w-[30px]" :class="select.color">
                                         <i class="mi" :class="'mi-' + select.icon"></i>
                                     </div>
@@ -214,7 +214,7 @@ export const tzDemoapps = {
                                         <p class="text-sm text-gray-400">{{ select.description }}</p>
                                     </div>
                                 </div>
-                                <div class="flex justify-end gap-2 p-3">
+                                <div class="w-auto">
                                     <div class="flex justify-end gap-2 p-3">
                                         <button type="button" @click="prev">
                                             <i class="mir mi-chevron_left"></i>
@@ -226,14 +226,24 @@ export const tzDemoapps = {
                                 </div>
                             </header>
                             <div class="px-4">
-                                <img :src="'assets/img/' + (select.img || 'chart-ui-kit-xerlee.jpg')" alt="">
+                                <img :src="'assets/img/' + (select.img || 'ui-6.jpg')" alt="">
                             </div>
-                            <div class="block p-4 border-t border-gray-700">
+                            <ul class="grid grid-cols-2 gap-3 p-4 border-t border-gray-700">
+                                <template v-for="item in select.assets">
+                                    <li class="flex flex-wrap gap-3">
+                                        <span class="tw-icono aspect-sm border text-gray-500 rounded-md border-gray-500 shadow-md">
+                                            <i class="mi" :class="'mi-' + item.icon"></i>
+                                        </span>
+                                        <div class="grow basis-0">
+                                            <p class="text-gray-300">{{ item.name }}</p>
+                                            <p class="text-[0.75rem] text-gray-400">{{ item.description }}</p>
+                                        </div>
+                                    </li>
+                                </template>
+                            </ul>
+                            <!-- <div class="block p-4 border-t border-gray-700">
                                 d
-                            </div>
-                            <div class="block p-4 border-t border-gray-700">
-                                d
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
