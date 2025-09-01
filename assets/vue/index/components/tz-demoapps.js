@@ -192,7 +192,7 @@ export const tzDemoapps = {
                 </menu>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 px-2 md:px-0">
                     <div class="nav">
-                        <p class="my-4 text-gray-400">Lista de características que logramos crear para una aplicación excepcionales</p>
+                        <p class="my-4 text-gray-400">Lista de características que logramos crear para aplicaciónes excepcionales</p>
                         <nav class="features">
                             <template v-for="item in features">
                                 <button type="button" :class="{ 'active': item.id === select.id }" @click="change(item)">
@@ -204,7 +204,7 @@ export const tzDemoapps = {
                     </div>
                     <div class="watch">
                         <div class="block bg-gray-800 border border-gray-700 rounded-md">
-                            <header class="flex justify-between pb-3">
+                            <header class="flex justify-between pb-2">
                                 <div class="grow basis-0 flex gap-3 p-2">
                                     <div class="w-[30px]" :class="select.color">
                                         <i class="mi" :class="'mi-' + select.icon"></i>
@@ -225,8 +225,8 @@ export const tzDemoapps = {
                                     </div>
                                 </div>
                             </header>
-                            <div class="px-4">
-                                <img :src="'assets/img/' + (select.img || 'ui-6.jpg')" alt="">
+                            <div class="px-4 pt-1 overflow-hidden">
+                                <img class="rounded-t-md shadow-xl shadow-gray-800" :src="'assets/img/' + (select.img || 'ui-6.jpg')" alt="">
                             </div>
                             <ul class="grid grid-cols-2 gap-3 p-4 border-t border-gray-700">
                                 <template v-for="item in select.assets">
