@@ -147,10 +147,14 @@ export const tzContact = {
                             <textarea v-model="form.message"></textarea>
                         </fieldset>
                     </div>
-                    <div class="col-span-full text-right">
+                    <div class="col-span-full grid grid-cols-2 gap-3">
                         <button type="submit">
                             <i class="icofont-whatsapp"></i>
-                            Enviar
+                            Enviar <small>Linea 1</small>
+                        </button>
+                        <button type="submit">
+                            <i class="icofont-whatsapp"></i>
+                            Enviar <small>Linea 2</small>
                         </button>
                     </div>
                 </form>
@@ -171,14 +175,12 @@ export const tzContact = {
             // console.log(JSON.stringify(this.items, null, 2));
         },
         looup() {
-            // inicializar lookup
             this.items.forEach((group) => {
                 group.children.forEach((child) => {
                     this.itemLookup[child.uuid] = child;
                 });
             });
 
-            // crear Sortable para cada grupo
             this.items.forEach((group) => {
                 const el = document.getElementById(group.group);
                 Sortable.create(el, {
