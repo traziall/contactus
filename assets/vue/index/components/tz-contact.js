@@ -82,7 +82,7 @@ export const tzContact = {
         this.looup();
     },
     template: /* html */`
-        <section class="block">
+        <section class="block" id="contactus">
             <div class="mx-auto max-w-5xl bg-(--gray-850) border border-gray-800 -mt-16 rounded-t-lg">
                 <header class="px-5 md:px-10 pt-5">
                     <h3 class="text-xl mb-2 text-gray-300">Selecciona los servicios que necesitas</h3>

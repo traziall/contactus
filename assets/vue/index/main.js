@@ -36,10 +36,10 @@ createApp({
     data() {
         return {
             preguntas: [
-                { id: 'us', label: '¿Quienes son?', seleccionado: false },
-                { id: 'devapp', label: '¿Que tipo de aplicaciones desarrollan?', seleccionado: false },
+                { id: 'us', label: '¿Quiénes somos?', seleccionado: false },
+                { id: 'devapp', label: '¿Qué tipo de aplicaciones desarrollan?', seleccionado: false },
                 { id: 'skills', label: '¿Qué tecnologías dominan?', seleccionado: false },
-                { id: 'schedule', label: '¿Como nos organizamos en el proyecto?', seleccionado: false },
+                { id: 'schedule', label: '¿Cómo se organizan en un proyecto?', seleccionado: false },
                 { id: 'industries', label: '¿En qué sectores tienen experiencia?', seleccionado: false }
             ],
             componentes: {

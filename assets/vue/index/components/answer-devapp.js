@@ -26,7 +26,6 @@ export const tzAnswerDevapp = {
                 name: 'Aplicaciones Móviles',
                 description: 'iOS y Android multiplataforma con un enfoque en la experiencia del usuario.',
                 list: [
-                    '',
                     'Ionic (con Angular o Vue)',
                     'Capacitor para acceso a funciones nativas',
                     'Progressive Web Apps (PWA)'
@@ -48,7 +47,7 @@ export const tzAnswerDevapp = {
     }),
     template: /* html */`
         <section id="devapp">
-            <chat-question id="#devapp" theme="red" question="¿Que tipo de aplicaciones desarrollan?"></chat-question>
+            <chat-question id="#devapp" theme="red" question="¿Qué tipo de aplicaciones desarrollan?"></chat-question>
             <container-chat>
                 <ul class="dev-app space-y-6">
                     <template v-for="(item, index) in devApps">

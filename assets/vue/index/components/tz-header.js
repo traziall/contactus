@@ -8,7 +8,10 @@ export const tzHeader = {
                 </a>
             </div>
             <nav>
-                <button type="button">Menu</button>
+                <a href="#contactus" class="inline-block space-x-2 text-green-400 border border-green-800 rounded-md py-1 px-4">
+                    <i class="icofont-whatsapp"></i>
+                    <span>Contactar</span>
+                </a>
             </nav>
         </section>
     </header>`,
