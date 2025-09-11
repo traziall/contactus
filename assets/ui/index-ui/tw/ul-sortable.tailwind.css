@@ -9,7 +9,7 @@
             @apply grid grid-cols-3 gap-4 items-start min-h-20 md:min-h-full;
         }
         > ul li {
-            @apply flex items-center py-3 justify-center bg-gray-800 shadow-md rounded-md;
+            @apply flex items-center py-3 justify-center bg-gray-800 shadow-md rounded-md cursor-move;
         }
     }
 }
@@ -37,6 +37,15 @@ span.span-title {
         }
     }
     button {
-        @apply cursor-pointer text-center space-x-2 text-green-400 py-1 px-3 bg-green-800/20 rounded-md border border-green-800/50;
+        @apply leading-3 cursor-pointer items-center flex justify-center gap-2 text-green-400 py-1 px-3 bg-green-800/20 rounded-md border border-green-800/50;
+        p {
+            @apply mb-1;
+        }
+        i {
+            @apply text-2xl;
+        }
+        small {
+            @apply text-green-700;
+        }
     }
 }

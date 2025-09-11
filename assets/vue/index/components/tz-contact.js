@@ -85,8 +85,8 @@ export const tzContact = {
         <section class="block">
             <div class="mx-auto max-w-5xl bg-(--gray-850) border border-gray-800 -mt-16 rounded-t-lg">
                 <header class="px-5 md:px-10 pt-5">
-                    <h3 class="text-xl mb-2 text-gray-300">¿Qué quieres que hagamos?</h3>
-                    <p class="text-sm text-gray-500">Arrastra y agrega al carrito, según lo que quieres de nosotros.</p>
+                    <h3 class="text-xl mb-2 text-gray-300">Selecciona los servicios que necesitas</h3>
+                    <p class="text-sm text-gray-500">Arrastra y agrega a tu solicitud los servicios que deseas incluir en tu proyecto.</p>
                 </header>
                 <div class="ul-sortable py-10 px-4 md:px-10">
                     <div class="group mb-4 md:mb-0">
@@ -107,7 +107,7 @@ export const tzContact = {
                     <div class="group shopping-cart">
                         <span class="span-title ml-1">
                             <i class="mi mi-shopping_cart"></i>
-                            Carrito {{ cartCount ? '(' + cartCount + ')' : '' }}
+                            Servicios seleccionados {{ cartCount ? '(' + cartCount + ')' : '' }}
                         </span>
                         <ul id="groupB" class="mt-2">
                             <li
@@ -137,7 +137,7 @@ export const tzContact = {
                     </div>
                     <div class="col-span-full md:col-span-2">
                         <fieldset>
-                            <legend>Asunto</legend>
+                            <legend>Proyecto / Asunto</legend>
                             <input type="text" v-model="form.asunto">
                         </fieldset>
                     </div>
@@ -150,11 +150,17 @@ export const tzContact = {
                     <div class="col-span-full grid grid-cols-2 gap-3">
                         <button type="button" @click="sendWhatsapp('apock')">
                             <i class="icofont-whatsapp"></i>
-                            Enviar <small>Linea 1</small>
+                            <div>
+                                <p>Enviar</p>
+                                <small>Asesor 1</small>
+                            </div>
                         </button>
                         <button type="button" @click="sendWhatsapp('crow')">
                             <i class="icofont-whatsapp"></i>
-                            Enviar <small>Linea 2</small>
+                            <div>
+                                <p>Enviar</p>
+                                <small>Asesor 2</small>
+                            </div>
                         </button>
                     </div>
                 </form>
@@ -213,7 +219,7 @@ const text = `
 Hola 👋, soy ${name}.
 Asunto: ${asunto}
 Mensaje: ${message}
-Carrito: ${cart || "Ninguno seleccionado"}
+Servicios: ${cart || "Ninguno seleccionado"}
 `.trim();
 
             const url = `https://wa.me/${phone.replace(/\+/g, "")}?text=${encodeURIComponent(text)}`;

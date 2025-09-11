@@ -20,6 +20,7 @@
     --color-green-400: oklch(79.2% 0.209 151.711);
     --color-green-500: oklch(72.3% 0.219 149.579);
     --color-green-600: oklch(62.7% 0.194 149.214);
+    --color-green-700: oklch(52.7% 0.154 150.069);
     --color-green-800: oklch(44.8% 0.119 151.328);
     --color-emerald-600: oklch(59.6% 0.145 163.225);
     --color-teal-400: oklch(77.7% 0.152 181.912);
@@ -575,9 +576,6 @@
   .min-h-full {
     min-height: 100%;
   }
-  .w-1 {
-    width: calc(var(--spacing) * 1);
-  }
   .w-1\/2 {
     width: calc(1/2 * 100%);
   }
@@ -617,17 +615,11 @@
   .min-w-md {
     min-width: var(--container-md);
   }
-  .flex-grow {
-    flex-grow: 1;
-  }
   .grow {
     flex-grow: 1;
   }
   .basis-0 {
     flex-basis: calc(var(--spacing) * 0);
-  }
-  .border-collapse {
-    border-collapse: collapse;
   }
   .rotate-\[30deg\] {
     rotate: 30deg;
@@ -916,9 +908,6 @@
     font-size: var(--text-xs);
     line-height: var(--tw-leading, var(--text-xs--line-height));
   }
-  .text-\[\.8rem\] {
-    font-size: .8rem;
-  }
   .text-\[0\.8rem\] {
     font-size: 0.8rem;
   }
@@ -1057,10 +1046,6 @@
     @supports (color: color-mix(in lab, red, red)) {
       --tw-shadow-color: color-mix(in oklab, var(--color-gray-900) var(--tw-shadow-alpha), transparent);
     }
-  }
-  .outline {
-    outline-style: var(--tw-outline-style);
-    outline-width: 1px;
   }
   .filter {
     filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
@@ -1723,6 +1708,7 @@ body.index {
     }
     > ul li {
       display: flex;
+      cursor: move;
       align-items: center;
       justify-content: center;
       border-radius: var(--radius-md);
@@ -1807,12 +1793,11 @@ span.span-title {
     }
   }
   button {
+    display: flex;
     cursor: pointer;
-    :where(& > :not(:last-child)) {
-      --tw-space-x-reverse: 0;
-      margin-inline-start: calc(calc(var(--spacing) * 2) * var(--tw-space-x-reverse));
-      margin-inline-end: calc(calc(var(--spacing) * 2) * calc(1 - var(--tw-space-x-reverse)));
-    }
+    align-items: center;
+    justify-content: center;
+    gap: calc(var(--spacing) * 2);
     border-radius: var(--radius-md);
     border-style: var(--tw-border-style);
     border-width: 1px;
@@ -1826,8 +1811,19 @@ span.span-title {
     }
     padding-inline: calc(var(--spacing) * 3);
     padding-block: calc(var(--spacing) * 1);
-    text-align: center;
+    --tw-leading: calc(var(--spacing) * 3);
+    line-height: calc(var(--spacing) * 3);
     color: var(--color-green-400);
+    p {
+      margin-bottom: calc(var(--spacing) * 1);
+    }
+    i {
+      font-size: var(--text-2xl);
+      line-height: var(--tw-leading, var(--text-2xl--line-height));
+    }
+    small {
+      color: var(--color-green-700);
+    }
   }
 }
 @property --tw-rotate-x {
@@ -1928,11 +1924,6 @@ span.span-title {
   syntax: "*";
   inherits: false;
   initial-value: 0 0 #0000;
-}
-@property --tw-outline-style {
-  syntax: "*";
-  inherits: false;
-  initial-value: solid;
 }
 @property --tw-blur {
   syntax: "*";
@@ -2056,10 +2047,10 @@ span.span-title {
   syntax: "*";
   inherits: false;
 }
-@property --tw-space-x-reverse {
+@property --tw-outline-style {
   syntax: "*";
   inherits: false;
-  initial-value: 0;
+  initial-value: solid;
 }
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
@@ -2086,7 +2077,6 @@ span.span-title {
       --tw-ring-offset-width: 0px;
       --tw-ring-offset-color: #fff;
       --tw-ring-offset-shadow: 0 0 #0000;
-      --tw-outline-style: solid;
       --tw-blur: initial;
       --tw-brightness: initial;
       --tw-contrast: initial;
@@ -2115,7 +2105,7 @@ span.span-title {
       --tw-translate-z: 0;
       --tw-ease: initial;
       --tw-leading: initial;
-      --tw-space-x-reverse: 0;
+      --tw-outline-style: solid;
     }
   }
 }
