@@ -20,7 +20,7 @@ export const tzContact = {
                         {
                             uuid: '254179b3-5a7d-43c0-8211-5e9b0d36c105',
                             icon: 'mi-animation', // Animación gráfica
-                            label: 'Animacion grafica',
+                            label: 'Animacion',
                             color: 'text-yellow-400',
                         },
                         {
@@ -32,7 +32,7 @@ export const tzContact = {
                         {
                             uuid: '8a2f9083-eb04-421c-94b0-b2407e17c7ce',
                             icon: 'mi-design_services', // Diseño UX UI
-                            label: 'Diseño UX UI',
+                            label: 'Diseño UX/UI',
                             color: 'text-teal-400',
                         },
                         {
@@ -66,11 +66,15 @@ export const tzContact = {
                     children: [],
                 },
             ],
+            contacts: [
+                { crow: "KzU3MzA0NjIxNTc4OA==" },  // +57..88
+                { apock: "KzU3MzE3ODM4ODYzNw==" }   // +57..37
+            ],
             itemLookup: {}, // para mapear uuid → objeto
         };
     },
     mounted() {
-        this.looup()
+        this.looup();
     },
     template: /* html */`
         <section class="block">
@@ -174,6 +178,11 @@ export const tzContact = {
                     onUpdate: this.updateItemsArray,
                 });
             });
+        },
+        fromB64toString(key) {
+            const found = this.contacts.find(obj => obj[key]);
+            if (!found) return null;
+            return atob(found[key]); // decodifica
         }
     },
 };
