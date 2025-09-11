@@ -5,14 +5,14 @@
         &.shopping-cart {
             @apply relative border border-dashed border-gray-700 p-4 rounded-lg;
             > span {
-                @apply ml-3 inline-flex items-center gap-2 text-sm shadow-md bg-gray-700 border border-gray-600 py-0.5 px-2 rounded-md absolute -top-[14px];
+                @apply ml-3 inline-flex text-gray-400 items-center gap-2 text-sm shadow-md bg-gray-800 border border-gray-700 py-0.5 px-2 rounded-md absolute -top-[14px];
                 * {
                     @apply leading-0;
                 }
             }
         }
         > ul {
-            @apply grid grid-cols-3 gap-4 min-h-24;
+            @apply grid grid-cols-3 gap-4 items-start min-h-full;
         }
         > ul li {
             @apply flex items-center py-3 justify-center bg-gray-800 shadow-md rounded-md;
