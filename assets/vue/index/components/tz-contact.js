@@ -14,7 +14,7 @@ export const tzContact = {
                         {
                             uuid: '81e2fece-436e-4041-a399-1a8d5da14909',
                             icon: 'mi-web', // App web
-                            label: 'app web',
+                            label: 'App web',
                             color: 'text-orange-400',
                         },
                         {
