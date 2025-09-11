@@ -124,7 +124,7 @@ export const tzContact = {
                         </ul>
                     </div>
                 </div>
-                <form class="tw-form relative" @submit.prevent="sendWhatsapp('apock')">
+                <form class="tw-form relative">
                     <span class="span-title ml-5 md:ml-10">
                         <i class="mi mi-phone"></i>
                         Contactar
@@ -148,11 +148,11 @@ export const tzContact = {
                         </fieldset>
                     </div>
                     <div class="col-span-full grid grid-cols-2 gap-3">
-                        <button type="submit">
+                        <button type="button" @click="sendWhatsapp('apock')">
                             <i class="icofont-whatsapp"></i>
                             Enviar <small>Linea 1</small>
                         </button>
-                        <button type="submit">
+                        <button type="button" @click="sendWhatsapp('crow')">
                             <i class="icofont-whatsapp"></i>
                             Enviar <small>Linea 2</small>
                         </button>
