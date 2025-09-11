@@ -71,6 +71,11 @@ export const tzContact = {
                 { apock: "KzU3MzE3ODM4ODYzNw==" }   // +57..37
             ],
             itemLookup: {}, // para mapear uuid → objeto
+            form: {
+                name: '',
+                asunto: '',
+                message: ''
+            }
         };
     },
     mounted() {
@@ -79,12 +84,12 @@ export const tzContact = {
     template: /* html */`
         <section class="block">
             <div class="mx-auto max-w-5xl bg-(--gray-850) border border-gray-800 -mt-16 rounded-t-lg">
-                <header class="mb-5">
+                <header class="px-5 md:px-10 pt-5">
                     <h3 class="text-xl mb-2 text-gray-300">¿Qué quieres que hagamos?</h3>
                     <p class="text-sm text-gray-500">Arrastra y agrega al carrito, según lo que quieres de nosotros.</p>
                 </header>
                 <div class="ul-sortable py-10 px-4 md:px-10">
-                    <div class="group">
+                    <div class="group mb-4 md:mb-0">
                         <ul id="groupA">
                             <li
                             v-for="item in items.find(g => g.group === 'groupA').children"
@@ -102,9 +107,9 @@ export const tzContact = {
                     <div class="group shopping-cart">
                         <span class="span-title ml-1">
                             <i class="mi mi-shopping_cart"></i>
-                            Carrito
+                            Carrito {{ cartCount ? '(' + cartCount + ')' : '' }}
                         </span>
-                        <ul id="groupB">
+                        <ul id="groupB" class="mt-2">
                             <li
                             v-for="item in items.find(g => g.group === 'groupB').children"
                             :key="item.uuid"
@@ -119,7 +124,7 @@ export const tzContact = {
                         </ul>
                     </div>
                 </div>
-                <form class="tw-form relative">
+                <form class="tw-form relative" @submit.prevent="sendWhatsapp('apock')">
                     <span class="span-title ml-5 md:ml-10">
                         <i class="mi mi-phone"></i>
                         Contactar
@@ -127,20 +132,26 @@ export const tzContact = {
                     <div class="col-span-full md:col-span-1">
                         <fieldset>
                             <legend>Nombre</legend>
-                            <input type="text">
+                            <input type="text" v-model="form.name">
                         </fieldset>
                     </div>
                     <div class="col-span-full md:col-span-2">
                         <fieldset>
                             <legend>Asunto</legend>
-                            <input type="text">
+                            <input type="text" v-model="form.asunto">
                         </fieldset>
                     </div>
                     <div class="col-span-full">
                         <fieldset>
                             <legend>Mensaje</legend>
-                            <textarea></textarea>
+                            <textarea v-model="form.message"></textarea>
                         </fieldset>
+                    </div>
+                    <div class="col-span-full text-right">
+                        <button type="submit">
+                            <i class="icofont-whatsapp"></i>
+                            Enviar
+                        </button>
                     </div>
                 </form>
             </div>
@@ -179,10 +190,38 @@ export const tzContact = {
                 });
             });
         },
+        cart() {
+            const group = this.items[1].children;
+            return group;
+        },
         fromB64toString(key) {
             const found = this.contacts.find(obj => obj[key]);
             if (!found) return null;
-            return atob(found[key]); // decodifica
+            return atob(found[key]);
+        },
+        sendWhatsapp(key) {
+            const phone = this.fromB64toString(key);
+            if (!phone) return;
+
+            const { name, asunto, message } = this.form;
+            const cart = this.cart().map(x => x.label).join(", ");
+
+            // construir el texto bonito
+const text = `
+Hola 👋, soy ${name}.
+Asunto: ${asunto}
+Mensaje: ${message}
+Carrito: ${cart || "Ninguno seleccionado"}
+`.trim();
+
+            const url = `https://wa.me/${phone.replace(/\+/g, "")}?text=${encodeURIComponent(text)}`;
+            window.open(url, "_blank");
         }
+
     },
+    computed: {
+        cartCount() {
+            return this.cart().length;
+        }
+    }
 };
