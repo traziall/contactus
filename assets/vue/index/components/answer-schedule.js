@@ -22,8 +22,7 @@ export const answerSchedule = {
                 id: "2",
                 title: "Propuesta & planificación",
                 subtitle: "Roadmap, features, entregables y stack tecnológico.",
-                time: "1–2 días",
-                js: () => "StepPlan"
+                time: "1–2 días"
             },
             {
                 id: "3",

@@ -56,10 +56,11 @@
                                             <i class="mir mi-textsms"></i>
                                         </span>
                                         <p>Selecciona una pregunta.</p>
+                                        <span class="mi mi-keyboard_arrow_down !text-4xl text-red-500 anim-arrow_down"></span>
                                     </div>
                                 </div>
                             </template>
-                            <nav class="space-y-2">
+                            <nav class="space-y-2 btns">
                                 <template v-for="item in preguntas">
                                     <button class="btn-question" @click="responder(item.id)" v-if="!item.seleccionado">
                                         <i class="mir mi-textsms"></i>
@@ -75,9 +76,11 @@
                 </div>
             </section>
             <tz-demoapps></tz-demoapps>
+            <tz-contact></tz-contact>
         </main>
         <tz-footer></tz-footer>
     </div>
+    <script src="assets/vendor/sortable/sortable.js"></script>
     <script src="assets/vendor/vue/vue-v3.js"></script>
     <script type="module" src="assets/vue/index/main.js"></script>
 </body>

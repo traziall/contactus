@@ -10,6 +10,7 @@ import { answerIndustries } from './components/answer-industries.js';
 import { tzPhone } from './components/tz-phone.js';
 import { tzFooter } from './components/tz-footer.js';
 import { tzDemoapps } from './components/tz-demoapps.js';
+import { tzContact } from './components/tz-contact.js';
 
 createApp({
     components: {
@@ -23,6 +24,14 @@ createApp({
         "answer-industries": answerIndustries,
         "tz-phone": tzPhone,
         "tz-demoapps": tzDemoapps,
+        "tz-contact": tzContact,
+    },
+    mounted() {
+        this.recorrerBotones("nav.btns", {
+            childSelector: "button",
+            targetSelector: "i",
+            cssActive: "!text-red-500"
+        });
     },
     data() {
         return {
@@ -40,7 +49,8 @@ createApp({
                 schedule: 'answer-schedule',
                 industries: 'answer-industries'
             },
-            respuestas: []
+            respuestas: [],
+            btnIndex: 0,
         };
     },
     methods: {
@@ -58,6 +68,61 @@ createApp({
             setTimeout(() => {
                 clientEvent.goToId(id, 100);
             }, 500);
+        },
+        recorrerBotones(elementPadre, setOptions = {}) {
+            const {
+                replay = 4000,              // tiempo entre pasos
+                durationActive = 1000,      // duración del estado activo
+                cssActive = "active",       // clase que se agrega
+                childSelector = "li",   // hijos a recorrer
+                targetSelector = null       // opcional: elemento interno donde aplicar la clase
+            } = setOptions;
+
+            const parent = document.querySelector(elementPadre);
+            if (!parent) return;
+
+            // Selecciona todos los hijos excepto el último
+            const items = parent.querySelectorAll(`${childSelector}:not(:last-child)`);
+            if (items.length === 0) return;
+
+            let index = 0;
+            let ciclo;
+
+            function activar() {
+                // Quitar clase a todos los targets
+                items.forEach(el => {
+                    const target = targetSelector ? el.querySelector(targetSelector) : el;
+                    if (target) target.classList.remove(cssActive);
+                });
+
+                // Agregar clase al actual
+                const current = items[index];
+                const target = targetSelector ? current.querySelector(targetSelector) : current;
+
+                if (target) {
+                    target.classList.add(cssActive);
+
+                    // Quitar después de durationActive
+                    setTimeout(() => {
+                        target.classList.remove(cssActive);
+                    }, durationActive);
+                }
+
+                index++;
+
+                // Reiniciar ciclo al llegar al último
+                if (index >= items.length) {
+                    index = 0;
+                    clearInterval(ciclo);
+                    setTimeout(() => {
+                        ciclo = setInterval(activar, replay);
+                    }, replay);
+                }
+            }
+
+            // Iniciar
+            ciclo = setInterval(activar, replay);
+            activar(); // primera ejecución inmediata
         }
     }
-}).mount('#app')
+}).mount('#app');

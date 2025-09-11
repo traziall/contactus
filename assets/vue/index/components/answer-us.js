@@ -17,7 +17,7 @@ export const tzAnswerUs = {
                     <p><strong>Yenerson Hernández</strong> y <strong>Yelainer. Hernández</strong>.</p>
                 </bubble-chat>
                 <bubble-chat classList="animate__animated backInRight animate__fast animate__delay-1">
-                    <p class="text-gray-400">Desarrolladores y diseñadores apasionados por crear aplicaciones progresivas que marcan la diferencia. Nos encanta enfrentarnos a nuevos retos, sin importar su complejidad</p>
+                    <p class="text-gray-400">Desarrolladores y diseñadores de aplicaciones progresivas que marcan la diferencia. Nos encanta enfrentarnos a nuevos retos, sin importar su complejidad</p>
                 </bubble-chat>
                 <div class="tz-qualities __apocalipsis animate__animated fadeIn animate__fast animate__delay-2">
                     <img src="assets/img/yenr.png" alt="">

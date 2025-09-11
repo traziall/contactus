@@ -60,7 +60,7 @@ export const tzDemoapps = {
                 name: "Formularios Dinámicos",
                 description: "Campos adaptables según el flujo o el perfil del usuario.",
                 icon: "description",
-                img: 'ui-2.jpeg',
+                img: 'ui-2.png',
                 category: "sections",
                 color: "text-teal-500",
                 assets: [
@@ -112,7 +112,7 @@ export const tzDemoapps = {
                 name: "Modo Oscuro/Claro",
                 description: "Personalización del tema visual según la preferencia del usuario.",
                 icon: "dark_mode",
-                img: '',
+                img: 'ui-7.png',
                 category: "interfaces",
                 color: "text-gray-700",
                 assets: [

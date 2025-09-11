@@ -342,4 +342,18 @@
   animation-name: fadeIn;
 }
 
+.anim-arrow_down {
+  display: inline-flex;
+  animation: anim-arrow_down 2s ease-in-out 1s infinite normal;
+}
+
+@keyframes anim-arrow_down {
+  from, to {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(4px);
+  }
+}
+
 /*# sourceMappingURL=main.css.map */

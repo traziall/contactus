@@ -1,5 +1,5 @@
 .tz-demoapps {
-    @apply bg-center bg-cover bg-no-repeat bg-fixed;
+    @apply block bg-center pb-20 bg-cover bg-no-repeat bg-fixed;
     .body {
         @apply mx-auto max-w-5xl mb-10;
     }
