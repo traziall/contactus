@@ -120,7 +120,7 @@ export const tzContact = {
                     </div>
                 </div>
                 <form class="tw-form relative">
-                    <span class="span-title ml-10">
+                    <span class="span-title ml-5 md:ml-10">
                         <i class="mi mi-phone"></i>
                         Contactar
                     </span>
