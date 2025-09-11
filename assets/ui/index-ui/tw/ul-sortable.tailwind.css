@@ -4,18 +4,36 @@
         @apply w-auto;
         &.shopping-cart {
             @apply relative border border-dashed border-gray-700 p-4 rounded-lg;
-            > span {
-                @apply ml-3 inline-flex text-gray-400 items-center gap-2 text-sm shadow-md bg-gray-800 border border-gray-700 py-0.5 px-2 rounded-md absolute -top-[14px];
-                * {
-                    @apply leading-0;
-                }
-            }
         }
         > ul {
             @apply grid grid-cols-3 gap-4 items-start min-h-full;
         }
         > ul li {
             @apply flex items-center py-3 justify-center bg-gray-800 shadow-md rounded-md;
+        }
+    }
+}
+
+span.span-title {
+    @apply inline-flex text-gray-400 items-center gap-2 text-sm shadow-md bg-gray-800 border border-gray-700 py-0.5 px-2 rounded-md absolute -top-[14px];
+    * {
+        @apply leading-0;
+    }
+}
+
+.tw-form {
+    @apply grid grid-cols-3 gap-3 mt-5 p-10 border-t border-gray-700/50 bg-gray-800;
+    div {
+        @apply w-auto;
+        fieldset {
+            @apply border rounded-md border-gray-700 bg-gray-800/25;
+            legend {
+                @apply text-sm ml-2 text-gray-400;
+            }
+            textarea,
+            input {
+                @apply outline-0 py-1 px-2 w-full resize-y;
+            }
         }
     }
 }

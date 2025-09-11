@@ -15,49 +15,49 @@ export const tzContact = {
                             uuid: '81e2fece-436e-4041-a399-1a8d5da14909',
                             icon: 'mi-web', // App web
                             label: 'app web',
-                            color: 'text-red-400',
+                            color: 'text-orange-400',
                         },
                         {
                             uuid: '254179b3-5a7d-43c0-8211-5e9b0d36c105',
                             icon: 'mi-animation', // Animación gráfica
                             label: 'Animacion grafica',
-                            color: 'text-red-400',
+                            color: 'text-yellow-400',
                         },
                         {
                             uuid: 'f2765f5d-3e86-4798-af52-6c2267b40257',
                             icon: 'mi-storage', // Back-end
                             label: 'Back-end',
-                            color: 'text-red-400',
+                            color: 'text-green-400',
                         },
                         {
                             uuid: '8a2f9083-eb04-421c-94b0-b2407e17c7ce',
                             icon: 'mi-design_services', // Diseño UX UI
                             label: 'Diseño UX UI',
-                            color: 'text-red-400',
+                            color: 'text-teal-400',
                         },
                         {
                             uuid: '9ff50cca-a4e0-4819-880b-afefaadfed8e',
                             icon: 'mi-desktop_windows', // App desktop
                             label: 'App desktop',
-                            color: 'text-red-400',
+                            color: 'text-teal-400',
                         },
                         {
                             uuid: '5eba8af9-b877-4832-b72e-570d6525ac4a',
                             icon: 'mi-smartphone', // App móvil
                             label: 'App movil',
-                            color: 'text-red-400',
+                            color: 'text-cyan-400',
                         },
                         {
                             uuid: '7c827907-d466-4361-90df-574623a4379c',
                             icon: 'mi-brush', // Ilustraciones
                             label: 'Ilustraciones',
-                            color: 'text-red-400',
+                            color: 'text-sky-400',
                         },
                         {
                             uuid: '40cdf557-360b-4fe1-8385-7597532c1802',
                             icon: 'mi-movie_edit', // Video edición (Material Symbols)
                             label: 'Video edicion',
-                            color: 'text-red-400',
+                            color: 'text-indigo-400',
                         },
                     ],
                 },
@@ -74,12 +74,12 @@ export const tzContact = {
     },
     template: /* html */`
         <section class="block">
-            <div class="mx-auto max-w-5xl bg-(--gray-850) border border-gray-800 p-10 -mt-16 rounded-t-lg">
+            <div class="mx-auto max-w-5xl bg-(--gray-850) border border-gray-800 -mt-16 rounded-t-lg">
                 <header class="mb-5">
                     <h3 class="text-xl mb-2 text-gray-300">¿Qué quieres que hagamos?</h3>
                     <p class="text-sm text-gray-500">Arrastra y agrega al carrito, según lo que quieres de nosotros.</p>
                 </header>
-                <div class="ul-sortable">
+                <div class="ul-sortable py-10 px-4 md:px-10">
                     <div class="group">
                         <ul id="groupA">
                             <li
@@ -87,8 +87,8 @@ export const tzContact = {
                             :key="item.uuid"
                             :data-uuid="item.uuid">
                                 <div class="text-center">
-                                    <figure class="tw-icono bg-gray-700/40 shadow-md m-0 p-0">
-                                        <i class="mi" :class="[item.icon, item.color]"></i>
+                                    <figure class="tw-icono bg-gray-700/40 shadow-md m-0 p-0" :class="item.color">
+                                        <i class="mi" :class="item.icon"></i>
                                     </figure>
                                     <p class="text-[0.8rem] text-gray-400">{{ item.label }}</p>
                                 </div>
@@ -96,7 +96,7 @@ export const tzContact = {
                         </ul>
                     </div>
                     <div class="group shopping-cart">
-                        <span>
+                        <span class="span-title ml-1">
                             <i class="mi mi-shopping_cart"></i>
                             Carrito
                         </span>
@@ -106,8 +106,8 @@ export const tzContact = {
                             :key="item.uuid"
                             :data-uuid="item.uuid">
                                 <div class="text-center">
-                                    <figure class="tw-icono bg-gray-700/40 shadow-md m-0 p-0">
-                                        <i class="mi" :class="[item.icon, item.color]"></i>
+                                    <figure class="tw-icono bg-gray-700/40 shadow-md m-0 p-0" :class="item.color">
+                                        <i class="mi" :class="item.icon"></i>
                                     </figure>
                                     <p class="text-[0.8rem] text-gray-400">{{ item.label }}</p>
                                 </div>
@@ -115,7 +115,30 @@ export const tzContact = {
                         </ul>
                     </div>
                 </div>
-                <figure class="decoration-flat"></figure>
+                <form class="tw-form relative">
+                    <span class="span-title ml-10">
+                        <i class="mi mi-phone"></i>
+                        Contactar
+                    </span>
+                    <div class="col-span-full md:col-span-1">
+                        <fieldset>
+                            <legend>Nombre</legend>
+                            <input type="text">
+                        </fieldset>
+                    </div>
+                    <div class="col-span-full md:col-span-2">
+                        <fieldset>
+                            <legend>Asunto</legend>
+                            <input type="text">
+                        </fieldset>
+                    </div>
+                    <div class="col-span-full">
+                        <fieldset>
+                            <legend>Mensaje</legend>
+                            <textarea></textarea>
+                        </fieldset>
+                    </div>
+                </form>
             </div>
         </section>
     `,
