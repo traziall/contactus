@@ -214,13 +214,18 @@ export const tzContact = {
             const { name, asunto, message } = this.form;
             const cart = this.cart().map(x => x.label).join(", ");
 
-            // construir el texto bonito
-const text = `
-Hola 👋, soy ${name}.
-Asunto: ${asunto}
-Mensaje: ${message}
-Servicios: ${cart || "Ninguno seleccionado"}
-`.trim();
+            // array para ir sumando líneas válidas
+            const parts = [];
+
+            if (name) parts.push(`Hola 👋, soy ${name}.`);
+            else parts.push(`Hola 👋.`); // por si no quieres que quede vacío
+
+            if (asunto) parts.push(`Asunto: ${asunto}`);
+            if (message) parts.push(`Mensaje: ${message}`);
+            parts.push(`Servicios: ${cart || "Ninguno seleccionado"}`);
+
+            // unir con saltos de línea
+            const text = parts.join("\n");
 
             const url = `https://wa.me/${phone.replace(/\+/g, "")}?text=${encodeURIComponent(text)}`;
             window.open(url, "_blank");
