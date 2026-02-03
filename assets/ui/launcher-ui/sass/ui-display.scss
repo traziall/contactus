@@ -1,0 +1,55 @@
+@use '../../vendor/_im-shadow' as *;
+
+.ui-display {
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    background-position: bottom;
+    position: relative;
+    padding: 22px;
+
+    button {
+        cursor: pointer;
+    }
+}
+
+.panel-menu {
+    z-index: 15;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-top: 1px solid rgba(#8AC9FF, 0.3);
+    background-image: linear-gradient(45deg, rgba(#629DFF, 0.5), rgba(#BC66FF, 0.5));
+    backdrop-filter: blur(4px);
+}
+
+.app-access {
+    --access-w: 70px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: var(--access-w);
+
+    >li {
+        display: block;
+
+        button {
+            width: var(--access-w);
+            height: var(--access-w);
+            box-shadow: shadow_i();
+            border-radius: 12px;
+            overflow: hidden;
+            border: 3px solid rgba(#8AC9FF, 0.3);
+            transition: 80ms linear;
+            transition-property: transform;
+
+            &:active {
+                transform: scale(0.95);
+            }
+        }
+    }
+}

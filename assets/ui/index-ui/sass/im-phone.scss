@@ -1,0 +1,124 @@
+.im-phone {
+    --color-primary: #E0E0E0;
+    --color-seccond: #9CA0A9;
+    --width-cam: 100px;
+    border-style: solid;
+    border-color: var(--color-primary);
+    border-width: 5px;
+    width: 265px;
+    height: 550px;
+    border-radius: 16px;
+    position: relative;
+    background-image: linear-gradient(#7A93FF, #D667FF);
+    display: flex;
+    flex-direction: column;
+    .im-phone-cam {
+        position: absolute;
+        top: 0;
+        width: 100px;
+        height: 12px;
+        background-color: var(--color-primary);
+        left: calc(50% - calc(var(--width-cam) / 2));
+        border-radius: 0 0 8px 8px;
+        display: flex;
+        gap: 8px;
+        justify-content: center;
+        align-items: center;
+        &::after,
+        &::before {
+            content: '';
+            display: block;
+            background-color: var(--color-seccond);
+            border-radius: 10px;
+        }
+        &::before {
+            width: 40px;
+            height: 3px;
+        }
+        &::after {
+            width: 5px;
+            height: 5px;
+        }
+    }
+    .im-phone-header {
+        display: flex;
+        padding-inline: 15px;
+        align-items: center;
+        padding-top: 5px;
+        justify-content: space-between;
+        font-size: 0.75rem;
+        color: #E7E7E7;
+        ul li > {
+            * {
+                vertical-align: middle;
+            }
+            span {
+                margin-left: .2rem;
+            }
+        }
+    }
+    .im-btns-vol {
+        position: absolute;
+        left: -8px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        top: 50px;
+        &::before,
+        &::after {
+            content: '';
+            display: block;
+            width: 4px;
+            height: 45px;
+            background-color: var(--color-primary);
+            border-radius: 3px 0 0 3px;
+        }
+    }
+    .im-phone-body {
+        flex-grow: 1;
+        flex-basis: 0;
+        padding: 20px 15px;
+    }
+
+    .im-phone-timer {
+        font-size: 2.7rem;
+        line-height: 0;
+        display: flex;
+        align-items: center;
+        gap: 3px;
+        margin-bottom: 3rem;
+        .timer-minutes {
+            display: flex;
+            line-height: 1;
+            flex-direction: column;
+            font-size: 1.25rem;
+            gap: 2px;
+            span:nth-child(2) {
+                font-size: 1rem;
+            }
+        }
+    }
+
+    .im-phone-menu {
+        display: grid;
+        gap: 15px;
+        grid-template-columns: repeat(3, 1fr);
+        a,
+        button {
+            display: block;
+            text-align: center;
+            padding: 13px 10px;
+            border-radius: 10px;
+            line-height: 1;
+            background-color: rgba(#000, .15);
+            width: 100%;
+            i {
+                font-size: 1.2rem;
+            }
+            p {
+                font-size: 0.65rem;
+                margin-top: 0.25rem;
+            }
+        }
+    }
+}

@@ -1,0 +1,19 @@
+.bubble-chat {
+    @apply grow basis-0 p-4 rounded-lg bg-gray-800 relative;
+    &.decoration::before {
+        content: '';
+        @apply w-5 h-5 bg-gray-800 block absolute top-[50%];
+    }
+    &.left::before {
+        transform: translateX(-50%) translateY(-50%) rotate(45deg);
+        @apply left-0;
+    }
+    &.right::before {
+        transform: translateX(50%) translateY(-50%) rotate(45deg);
+        @apply right-0;
+    }
+    &.red.decoration::before,
+    &.red {
+        @apply bg-red-600;
+    }
+}

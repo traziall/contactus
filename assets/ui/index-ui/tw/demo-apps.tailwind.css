@@ -1,0 +1,29 @@
+.tz-demoapps {
+    @apply block bg-center pb-10 bg-cover bg-no-repeat bg-fixed;
+    .body {
+        @apply mx-auto max-w-5xl mb-10;
+    }
+    menu {
+        @apply border-b mb-2 border-gray-700;
+        button {
+            @apply border-b-2 border-red-500 pb-2 -mb-px px-4 inline-block;
+        }
+    }
+    .nav {
+        @apply grid-cols-3 gap-4;
+    }
+    .watch {
+        button {
+            @apply border cursor-pointer border-gray-700 active:mb-[2px] active:translate-y-[2px] active:border-b-2 border-b-4 py-1 leading-0 px-3 rounded-md;
+        }
+    }
+    .features {
+        @apply grid grid-cols-1 md:grid-cols-2 gap-2;
+        button {
+            @apply flex items-center py-1 px-2 border border-b-2 rounded-md border-transparent cursor-pointer;
+            &.active {
+                @apply border-gray-600 bg-gray-900;
+            }
+        }
+    }
+}

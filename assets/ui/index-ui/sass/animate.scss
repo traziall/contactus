@@ -1,0 +1,119 @@
+.animate__animated {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+.animate__faster {
+    animation-duration: 500ms;
+}
+
+.animate__fast {
+    animation-duration: 800ms;
+}
+
+.animate__normal {
+    animation-duration: 1s;
+}
+
+.animate__slow {
+    animation-duration: 2s;
+}
+
+.animate__slower {
+    animation-duration: 3s;
+}
+
+.animate__delay-0\.5 {
+    animation-delay: 0.25s;
+}
+
+.animate__delay-1 {
+    animation-delay: 0.5s;
+}
+
+.animate__delay-2 {
+    animation-delay: 1s;
+}
+
+.animate__delay-3 {
+    animation-delay: 1.5s;
+}
+
+.animate__delay-4 {
+    animation-delay: 2s;
+}
+
+.animate__delay-5 {
+    animation-delay: 2.5s;
+}
+
+.animate__repeat-1 {
+    animation-iteration-count: 1;
+}
+
+.animate__repeat-2 {
+    animation-iteration-count: 2;
+}
+
+.animate__repeat-3 {
+    animation-iteration-count: 3;
+}
+
+.animate__infinite {
+    animation-iteration-count: infinite;
+}
+
+.animate__stop {
+    animation: none !important;
+}
+
+
+@keyframes backInRight {
+    0% {
+        transform: translateX(2000px) scale(0.7);
+        opacity: 0.7;
+    }
+
+    80% {
+        transform: translateX(0px) scale(0.7);
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.backInRight {
+    animation-name: backInRight;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.fadeIn {
+    animation-name: fadeIn;
+}
+
+.anim-arrow_down {
+    display: inline-flex;
+    animation: anim-arrow_down 2s ease-in-out 1s infinite normal;
+}
+
+@keyframes anim-arrow_down {
+    from, to {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(4px);
+    }
+}

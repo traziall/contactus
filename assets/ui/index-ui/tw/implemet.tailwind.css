@@ -1,0 +1,62 @@
+.tw-icono {
+    --tw-aspect-size: 45px;
+    width: var(--tw-aspect-size);
+    height: var(--tw-aspect-size);
+    @apply inline-flex items-center justify-center relative;
+    &:not([class*=" rounded-"], [class^="rounded-"]) {
+        @apply rounded-full;
+    }
+    > i {
+        font-size: calc(var(--tw-aspect-size) / 1.75);
+        @apply text-inherit absolute;
+    }
+}
+
+.tw-avatar {
+    --tw-aspect-size: 45px;
+    width: var(--tw-aspect-size);
+    height: var(--tw-aspect-size);
+    @apply relative inline-block;
+    > img {
+        @apply w-full h-full object-cover object-center;
+    }
+}
+
+.aspect-xxs {
+    --tw-aspect-size: 18px;
+}
+.aspect-xs {
+    --tw-aspect-size: 25px;
+}
+.aspect-sm {
+    --tw-aspect-size: 35px;
+}
+.aspect-base {
+    --tw-aspect-size: 45px;
+}
+.aspect-md {
+    --tw-aspect-size: 60px;
+}
+.aspect-lg {
+    --tw-aspect-size: 77px;
+}
+.aspect-xl {
+    --tw-aspect-size: 95px;
+}
+.aspect-2xl {
+    --tw-aspect-size: 117px;
+}
+.aspect-3xl {
+    --tw-aspect-size: 137px;
+}
+.aspect-4xl {
+    --tw-aspect-size: 155px;
+}
+
+@media (max-width: 640px) {
+    .dev-app {
+        .tw-icono {
+            --tw-aspect-size: 50px;
+        }
+    }
+}

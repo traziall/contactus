@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traziall - contactanos</title>
+    <link rel="stylesheet" href="assets/vendor/material-icons/material-icons.css">
+    <link rel="stylesheet" href="assets/ui/tw.css">
+    <link rel="stylesheet" href="assets/ui/main.css">
+    <link rel="stylesheet" href="assets/vendor/devicon/devicon.css">
+    <link rel="stylesheet" href="assets/vendor/icofont-social/icofont-social.css">
+    <link rel="icon" type="image/x-icon" href="traziall-white-ico.ico">
+</head>
+<body class="index">
+    <div id="app">
+        <tz-header></tz-header>
+        <div class="hidden md:block">
+            <tz-frontanimate></tz-frontanimate>
+        </div>
+        <main class="relative mt-3 md:-mt-10">
+            <section class="flex flex-wrap gap-5 mx-auto max-w-5xl mb-10">
+                <div class="w-[320px] hidden md:block">
+                    <div class="sticky top-5">
+                        <tz-phone />
+                    </div>
+                </div>
+                <div class="w-full md:grow md:basis-0">
+                    <div class="block">
+                        <header class="tz-header-chat mb-4">
+                            <div class="flex items-center gap-4">
+                                <figure class="tw-avatar rounded-full border-3 border-gray-600">
+                                    <img class="rounded-full" src="assets/img/traziall-2-logo.jpg" alt="">
+                                </figure>
+                                <div class="grow basis-0">
+                                    <h1>Traziall</h1>
+                                    <p class="text-lg">Estamos para ayudarte.</p>
+                                </div>
+                                <div class="text-xl opacity-25">
+                                    <i class="mir mi-textsms"></i>
+                                </div>
+                            </div>
+                        </header>
+                        <article class="tw-chat">
+                            <template v-if="respuestas.length">
+                                <div class="mb-5 space-y-6">
+                                    <component
+                                        v-for="id in respuestas"
+                                        :is="componentes[id]"
+                                        :key="id"
+                                    ></component>
+                                </div>
+                            </template>
+                            <template v-else>
+                                <div class="w-full h-60 flex justify-center items-center">
+                                    <div class="text-center">
+                                        <span class="text-2xl">
+                                            <i class="mir mi-textsms"></i>
+                                        </span>
+                                        <p>Elige una pregunta para empezar</p>
+                                        <span class="mi mi-keyboard_arrow_down !text-4xl text-red-500 anim-arrow_down"></span>
+                                    </div>
+                                </div>
+                            </template>
+                            <nav class="space-y-2 btns">
+                                <template v-for="item in preguntas">
+                                    <button class="btn-question" @click="responder(item.id)" v-if="!item.seleccionado">
+                                        <i class="mir mi-textsms"></i>
+                                        <span>{{ item.label }}</span>
+                                    </button>
+                                </template>
+                                <template v-if="!(preguntas.every(p => p.seleccionado))">
+                                    <button type="button" class="btn-question center" @click="responder(null)">Ver todas las preguntas</button>
+                                </template>
+                            </nav>
+                        </article>
+                    </div>
+                </div>
+            </section>
+            <tz-demoapps></tz-demoapps>
+            <tz-gallery></tz-gallery>
+            <tz-contact></tz-contact>
+        </main>
+        <tz-footer></tz-footer>
+    </div>
+    <script src="assets/vendor/sortable/sortable.js"></script>
+    <script src="assets/vendor/vue/vue-v3.js"></script>
+    <script type="module" src="assets/vue/index/main.js"></script>
+</body>
+</html>

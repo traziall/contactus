@@ -1,0 +1,107 @@
+@use '../../vendor/_im-shadow' as *;
+@use '../../vendor/colors' as *;
+
+.app-launcher {
+    --launcher-w: 1150px;
+    --launcher-h: 650px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: calc(100vh - 250px);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    >* {
+        position: absolute;
+    }
+}
+
+.launcher {
+    width: var(--launcher-w);
+    height: var(--launcher-h);
+    border: 1px solid tw-color('sky', '100', 0.25);
+    background-color: tw-color('sky', '400', 0.5);
+    backdrop-filter: blur(4px);
+    border-radius: 10px;
+    background-position: bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: shadow_v();
+
+    > header {
+        display: flex;
+        padding: 5px 14px;
+        padding-bottom: 0;
+        flex-wrap: wrap;
+        gap: 30px;
+        .logo {
+            width: 100px;
+        }
+        .handler {
+            flex: 1 0 0;
+            height: 25px;
+            align-self: self-start;
+        }
+        menu {
+            display: flex;
+            gap: 18px;
+            button {
+                color: #fff;
+            }
+        }
+    }
+}
+
+.launcher-loading {
+    width: 380px;
+    text-align: center;
+
+    img {
+        margin-bottom: 1.25rem;
+    }
+
+    p {
+        font-size: 1.25rem;
+        color: #fff;
+    }
+}
+
+
+
+.icono-llenado {
+    width: 240px;
+    height: 30px;
+    display: inline-block;
+    background: url('../img/genshi-elementos-white.png');
+    /* Imagen gris */
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
+
+    &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        /* Este es el nivel del llenado */
+        background: url('../img/genshi-elementos-colored.png');
+        /* Imagen con color */
+        background-repeat: no-repeat;
+        background-size: contain;
+        transition: clip-path 3s ease;
+        clip-path: inset(0 100% 0 0);
+    }
+
+    &.active::after {
+        clip-path: inset(0 0 0 0);
+    }
+}
+

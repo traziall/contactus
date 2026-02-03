@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traziall - dashboard</title>
+    <link rel="stylesheet" href="assets/ui/tw.css">
+    <link rel="stylesheet" href="assets/vendor/material-icons/material-icons.css">
+    <style>
+        .btn-nav {
+            &::after,
+            &::before {
+                content: '';
+                clip-path: polygon(100% 0%, 100% 100%, 0% 100%, 21% 94%, 39% 88%, 57% 82%, 71% 73%, 83% 59%, 89% 44%, 93% 30%);
+                background-color: #fff;
+                position: absolute;
+                top: -10px;
+                right: 0;
+                width: 10px;
+                display: block;
+                height: 10px;
+            }
+            &::after {
+                transform: rotateX(-180deg);
+                bottom: -10px;
+                top: initial;
+            }
+        }
+    </style>
+</head>
+
+<body class="min-h-full bg-gray-100">
+    <main class="flex flex-wrap">
+        <aside class="w-[280px] h-screen bg-gray-800 text-white rounded-r-lg">
+            <header class="mb-5 py-4 px-5">
+                <h6 class="uppercase mb-3 font-semibold">Dashboard demo</h6>
+                <div class="flex w-full gap-4">
+                    <img class="w-[45px] h-[45px] rounded-full border-2 border-gray-500"
+                        src="assets/img/yenerson-avatar.png" alt="">
+                    <div>
+                        <h6 class="text-lg font-semibold">Yenerson HLopez</h6>
+                        <p class="text-sm text-gray-500">Front-end dev</p>
+                    </div>
+                </div>
+            </header>
+            <nav class="pl-5 space-y-3">
+                <button type="button" class="bg-gray-100 cursor-pointer text-gray-700 w-full rounded-l-xl btn-nav relative py-1.5 px-3 text-left font-semibold">
+                    lorem
+                </button>
+                <button type="button" class="text-white cursor-pointer w-full py-1.5 px-3 text-left font-semibold">
+                    lorem
+                </button>
+                <button type="button" class="text-white cursor-pointer w-full py-1.5 px-3 text-left font-semibold">
+                    lorem
+                </button>
+            </nav>
+        </aside>
+        <section class="px-10 grow basis-0">
+            <header class="w-full mt-1">
+                <nav class="flex gap-1">
+                    <button type="button" class="inline-flex items-center py-2 px-5 bg-white border border-gray-200 border-b-0 rounded-t-xl">
+                        tab queso
+                        <i class="mi mi-close ml-3 text-gray-300 hover:text-gray-500 cursor-pointer"></i>
+                    </button>
+                    <button type="button">
+                        <div class="flex py-1 px-5 bg-gray-200 rounded-lg">
+                            tab queso
+                            <i class="mi mi-close ml-3 text-gray-300 hover:text-gray-500 cursor-pointer"></i>
+                        </div>
+                    </button>
+                </nav>
+                <section class="flex w-full shadow-sm bg-white p-4 rounded-b-xl rounded-tr-xl">
+                    lorem
+                </section>
+            </header>
+        </section>
+    </main>
+    <script src="assets/vendor/vue/vue-v3.js"></script>
+</body>
+
+</html>

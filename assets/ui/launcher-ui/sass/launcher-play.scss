@@ -1,0 +1,231 @@
+@use '../../vendor/_im-shadow' as *;
+@use '../../vendor/colors' as *;
+
+.launcher-play {
+    --pjs-selected-h: 440px;
+    display: flex;
+    padding: 14px;
+    color: #fff;
+    .launcher-team {
+        width: calc(100% - 250px);
+    }
+    .launcher-aside {
+        width: 250px;
+        padding-left: 20px;
+
+        header {
+            margin-bottom: 0.5rem;
+            fieldset {
+                width: 100%;
+                padding-left: 5px;
+                margin: 0;
+                border-radius: 8px;
+                background-color: rgba(#ffffff, 0.2);
+                border: 1px solid rgba(#ffffff, 0.4);
+                div {
+                    align-items: center;
+                    display: flex;
+                    gap: 15px;
+                }
+                input {
+                    flex: 1 0 0;
+                    width: auto;
+                    border: none !important;
+                    padding: 5px;
+                    width: 150px;
+                    outline: none !important;
+                    background: transparent;
+                }
+            }
+        }
+    }
+    .launcher-elements {
+        > h6 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        > ul {
+            display: inline-flex;
+            margin-left: -14px;
+            padding: 3px 10px 3px 14px;
+            border-radius: 0 50px 50px 0;
+            box-shadow: shadow_ii();
+            width: auto;
+            gap: 8px;
+            background-color: rgba(#ffffff, 0.2);
+        }
+        > ul li {
+            img {
+                width: 25px;
+                height: 25px;
+            }
+        }
+    }
+
+    .pjs-selected {
+        height: var(--pjs-selected-h);
+        margin-top: 2rem;
+        display: grid;
+        gap: 22px;
+        grid-template-columns: repeat(4, 1fr);
+        > li {
+            position: relative;
+            height: var(--pjs-selected-h);
+            overflow: hidden;
+            button {
+                position: absolute;
+                bottom: -20px;
+                opacity: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                border-top: 1px solid;
+                border-bottom: 1px solid;
+                border-color: tw-color('red', '400', 0.25);
+                width: 120px;
+                color: tw-color('red', '200');
+                background-image: linear-gradient(90deg, transparent, tw-color('red', '500', 0.5), transparent);
+                padding: 5px 0;
+                transition: 150ms ease-in;
+                font-weight: 600;
+                transition-property: bottom, opacity;
+                text-transform: uppercase;
+                &:hover {
+                    color: #fff;
+                }
+            }
+            &:hover button {
+                bottom: 20px;
+                opacity: 1;
+            }
+        }
+        .pj-drop {
+            --element-color: #{rgba(#fff, 0.5)};
+            --element-bcolor: #{rgba(#fff, 0.15)};
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-left: 1px solid var(--element-bcolor);
+            border-right: 1px solid var(--element-bcolor);
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0 0  15px 15px;
+            background-image: linear-gradient(transparent 70%, var(--element-color));
+            .add {
+                display: flex;
+                width: 45px;
+                height: 45px;
+                border-radius: 50%;
+                border: 1px solid rgba(#fff, 0.5);
+                align-items: center;
+                justify-content: center;
+            }
+            &.theme-pyro {
+                --element-color: #{tw-color('red', '500', 0.45)};
+                --element-bcolor: #{tw-color('red', '500', 0.25)};
+            }
+            &.theme-cryo {
+                --element-color: #{tw-color('sky', '500', 0.5)};
+                --element-bcolor: #{tw-color('sky', '500', 0.25)};
+            }
+            &.theme-dendro {
+                --element-color: #{tw-color('emerald', '500', 0.5)};
+                --element-bcolor: #{tw-color('emerald', '500', 0.25)};
+            }
+            &.theme-geo {
+                --element-color: #{tw-color('amber', '500', 0.5)};
+                --element-bcolor: #{tw-color('amber', '500', 0.25)};
+            }
+            &.theme-anemo {
+                --element-color: #{tw-color('teal', '500', 0.5)};
+                --element-bcolor: #{tw-color('teal', '500', 0.25)};
+            }
+            &.theme-electro {
+                --element-color: #{tw-color('purple', '500', 0.5)};
+                --element-bcolor: #{tw-color('purple', '500', 0.25)};
+            }
+        }
+        .pj-base {
+            --element-color: #fff;
+            position: absolute;
+            display: block;
+            border-radius: 100%;
+            width: 100%;
+            background-color: var(--element-color);
+            height: 40px;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            filter: blur(5px);
+            &.theme-pyro {
+                --element-color: #{tw-color('red', '500')};
+            }
+        }
+
+        .pj {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: right;
+            }
+        }
+    }
+}
+
+
+.aside-pjs {
+    height: 500px;
+    display: block;
+    > li + li {
+        margin-top: 5px;
+    }
+    > li {
+        width: 100%;
+        display: flex;
+        background-color: rgba(#fff, 0.15);
+        border-radius: 8px;
+        padding: 8px;
+        flex-wrap: wrap;
+        gap: 10px;
+        backdrop-filter: blur(4px);
+        box-shadow: shadow_ii();
+        text-shadow: 0 0  3px rgba(#000, 0.15);
+        figure {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: 2px solid rgba(#fff, 0.25);
+            overflow: hidden;
+            img {
+                width: 100%;
+                height: 100%;
+                object-position: center;
+                object-fit: contain;
+            }
+        }
+        .body {
+            h6 {
+                font-size: 1rem;
+            }
+            p {
+                img {
+                    width: 20px;
+                    display: inline-block;
+                    margin-right: 0.5rem;
+                }
+            }
+        }
+    }
+}
+
+

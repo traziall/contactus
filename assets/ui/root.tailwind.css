@@ -1,0 +1,25 @@
+@theme {
+    --color-50: #f1f9fa;
+    --color-100: #dbedf2;
+    --color-200: #bcdbe5;
+    --color-300: #8dc0d3;
+    --color-400: #579db9;
+    --color-500: #3c819e;
+    --color-600: #356a85;
+    --color-700: #30586e;
+    --color-800: #2e4a5c;
+    --color-900: #2a3f4f;
+    --color-950: #182834;
+    --gray-850: #182230;
+}
+
+body.index {
+    @apply bg-gray-900 text-white scroll-smooth;
+}
+
+.d-grid {
+    @apply grid grid-cols-12;
+    &:not([class*=" gap-"], [class^="gap-"]) {
+        @apply gap-3;
+    }
+}

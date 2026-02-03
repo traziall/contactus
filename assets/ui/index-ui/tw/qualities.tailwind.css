@@ -1,0 +1,103 @@
+.tz-qualities {
+    @apply relative flex items-center;
+    img {
+        @apply h-[280px] sm:h-[330px] md:h-[380px] z-[1];
+    }
+    ul {
+        @apply flex flex-wrap flex-col gap-5 absolute w-full;
+        li {
+            @apply w-full flex;
+            p {
+                animation-duration: 8s;
+                animation-fill-mode: both;
+                animation-iteration-count: infinite;
+                @apply w-full block px-6 py-2 rounded-md md:rounded-full bg-gray-400 text-sm sm:text-base md:text-lg font-semibold;
+            }
+            &:nth-child(1) p {
+                @apply bg-gradient-to-r from-purple-600 to-pink-400;
+            }
+            &:nth-child(2) p {
+                animation-delay: 0.5s;
+                @apply bg-gradient-to-r from-sky-600 to-cyan-400;
+            }
+            &:nth-child(3) p {
+                animation-delay: 1s;
+                @apply bg-gradient-to-r from-green-600 to-lime-400;
+            }
+            &:nth-child(4) p {
+                animation-delay: 1.5s;
+                @apply bg-gradient-to-r from-red-500 to-orange-400;
+            }
+        }
+    }
+    &.__apocalipsis {
+        @apply justify-end -mt-4;
+        li {
+            @apply justify-end;
+            p {
+                animation-name: pulseLeft;
+                @apply mr-20;
+            }
+            &:nth-child(1) p {
+                @apply sm:w-[200px];
+            }
+            &:nth-child(2) p {
+                @apply sm:w-[400px];
+            }
+            &:nth-child(3) p {
+                @apply sm:w-[440px];
+            }
+            &:nth-child(4) p {
+                @apply sm:w-[400px];
+            }
+        }
+    }
+    &.__crow177 {
+        @apply mt-0 md:-mt-10 justify-start;
+        li {
+            @apply justify-start;
+            p {
+                animation-name: pulseRight;
+                @apply ml-20 sm:ml-32;
+            }
+            &:nth-child(1) p {
+                @apply sm:w-[180px];
+            }
+            &:nth-child(2) p {
+                @apply sm:w-[460px];
+            }
+            &:nth-child(3) p {
+                @apply sm:w-[380px];
+            }
+            &:nth-child(4) p {
+                @apply sm:w-[360px];
+            }
+        }
+    }
+}
+
+@keyframes pulseLeft {
+    from, 90%, to {
+        transform: translateX(0);
+    }
+    95% {
+        transform: translateX(-15px);
+    }
+}
+
+@keyframes pulseRight {
+    from, 90%, to {
+        transform: translateX(0);
+    }
+    95% {
+        transform: translateX(15px);
+    }
+}
+
+@media (max-width: 640px) {
+    .tz-qualities {
+        ul li > p {
+            animation: none;
+        }
+    }
+}

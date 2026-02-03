@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+@import './root.tailwind.css';
+@import './index-ui/tw/btn-question.tailwind.css';
+@import './index-ui/tw/bubble-chat.tailwind.css';
+@import './index-ui/tw/chat.tailwind.css';
+@import './index-ui/tw/header.tailwind.css';
+@import './index-ui/tw/implemet.tailwind.css';
+@import './index-ui/tw/qualities.tailwind.css';
+@import './index-ui/tw/step-skills.tailwind.css';
+@import './index-ui/tw/footer.tailwind.css';
+@import './index-ui/tw/demo-apps.tailwind.css';
+@import './index-ui/tw/ul-sortable.tailwind.css';
+
+/**
+ * APP styles
+ */
+
+
+
+/**
+ * Launcher
+ */
+

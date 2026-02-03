@@ -1,0 +1,21 @@
+.btn-question {
+    @apply flex w-full items-center gap-4 p-3 rounded-lg border border-gray-800 shadow-sm shadow-gray-800 cursor-pointer;
+    i {
+        @apply text-gray-400 transition-colors duration-200;
+    }
+    &:hover {
+        i {
+            @apply md:text-red-500;
+        }
+    }
+    &.center {
+        @apply justify-center;
+    }
+}
+
+.ul-decoration {
+    li:before {
+        content: '';
+        @apply w-[7px] h-[7px] bg-gray-700 inline-block mr-4;
+    }
+}

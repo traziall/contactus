@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traziall - Launcher</title>
+    <link rel="stylesheet" href="assets/ui/tw.css">
+    <link rel="stylesheet" href="assets/ui/main.css">
+    <link rel="stylesheet" href="assets/vendor/material-icons/material-icons.css">
+    <link rel="icon" type="image/x-icon" href="traziall-white-ico.ico">
+</head>
+<body>
+    <main id="app" class="ui-display" style="background-image: url('assets/img/windows-xp.jpg');">
+        <section class="dysplay">
+            <ul class="app-access">
+                <li>
+                    <button type="button" @click="show()">
+                        <figure>
+                            <img src="assets/img/ico-genshi.jpg" alt="">
+                        </figure>
+                    </button>
+                </li>
+            </ul>
+            <app-launcher ref="launcherRef"></app-launcher>
+        </section>
+        <menu class="panel-menu">
+            <ul class="apps-control">
+                <li>
+                    <!-- <button>
+                        <figure>
+                            <img src="assets/img/ico-genshi.jpg" alt="">
+                        </figure>
+                    </button> -->
+                </li>
+                <li>a</li>
+                <li>a</li>
+            </ul>
+        </menu>
+    </main>
+    <script src="assets/vendor/vue/vue-v3.js"></script>
+    <script src="assets/vendor/pinia/vue-demi.js"></script>
+    <script src="assets/vendor/pinia/pinia.iife.js"></script>
+    <script src="assets/vendor/interatc/interact.min.js"></script>
+    <script src="assets/vendor/anime/anime@3.min.js"></script>
+    <script type="module" src="assets/vue/launcher/main.js"></script>
+</body>
+</html>

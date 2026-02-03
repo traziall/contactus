@@ -1,0 +1,140 @@
+@use 'sass:map';
+
+$spans: (
+    '1': (
+        'left': 0,
+        'delay': none
+    ),
+    '2': (
+        'left': 10%,
+        'delay': 2s
+    ),
+    '3': (
+        'left': 15%,
+        'delay': none
+    ),
+    '4': (
+        'left': 20%,
+        'delay': 5s
+    ),
+    '5': (
+        'left': 30%,
+        'delay': 12s
+    ),
+    '6': (
+        'left': 40%,
+        'delay': 4s
+    ),
+    '7': (
+        'left': 50%,
+        'delay': 1s
+    ),
+    '8': (
+        'left': 60%,
+        'delay': none
+    ),
+    '9': (
+        'left': 70%,
+        'delay': 10s
+    ),
+    '10': (
+        'left': 80%,
+        'delay': none
+    ),
+    '11': (
+        'left': 90%,
+        'delay': 8s
+    ),
+    '12': (
+        'left': 95%,
+        'delay': none
+    ),
+);
+
+$cuadrillos: (
+    '2n': (
+        'bg': #38827C,
+        'cua': 60px,
+        'duration': 15s,
+    ),
+    '3n': (
+        'bg': #40215F,
+        'cua': 40px,
+        'duration': 10s,
+    ),
+    '4n': (
+        'bg': #315F86,
+        'cua': 20px,
+        'duration': none,
+    ),
+);
+
+.fondo {
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+}
+
+.tema-night .fondo {
+    background: linear-gradient(45deg, #101112, #2C2D31);
+}
+
+.fondo span {
+    display: block;
+    width: 80px;
+    height: 80px;
+    background-color: #4F2165;
+    position: absolute;
+    transform: translateX(-50%);
+    animation: vuelta 8s linear infinite normal both;
+}
+
+@keyframes vuelta {
+    from {
+        transform: rotate(0deg);
+        bottom: calc(0px - 100px);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: .5;
+    }
+
+    50% {
+        opacity: .5;
+    }
+
+    to {
+        transform: rotate(360deg);
+        bottom: calc(100% + 100px);
+        opacity: 0;
+    }
+}
+
+@each $key, $value in $cuadrillos {
+    .fondo span:nth-child(#{$key}) {
+        background-color: map.get($value, "bg");
+        width: map.get($value, "cua");
+        height: map.get($value, "cua");
+        @if map.get($value, "duration") != none {
+            animation-duration: map.get($value, "duration");
+        }
+    }
+}
+
+@each $key, $value in $spans {
+    .fondo span:nth-child(#{$key}) {
+        left: map.get($value, "left");
+        @if map.get($value, "left") != none {
+            animation-delay: map.get($value, "delay");
+        }
+    }
+}
+
+
+@media (max-width: 825px) {
+    .fondo span {
+        animation: none !important;
+        display: none !important;
+    }
+}

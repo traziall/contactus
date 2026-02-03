@@ -1,0 +1,24 @@
+
+/* Estilos base para las partículas */
+.effect-particles {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* No interfieren con los clics */
+    overflow: hidden;
+}
+
+.particle-xs, .particle-sm, .particle-md, .particle-lg {
+    position: absolute;
+    background: #fff; /* O el color del elemento del pj */
+    border-radius: 50%;
+    bottom: -10px;
+    opacity: 0;
+}
+
+.particle-xs { width: 4px; height: 4px; }
+.particle-sm { width: 6px; height: 6px; }
+.particle-md { width: 8px; height: 8px; }
+.particle-lg { width: 10px; height: 10px; }

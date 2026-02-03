@@ -1,0 +1,12 @@
+{
+    "dependencies": {
+        "@tailwindcss/cli": "^4.1.8",
+        "@tailwindcss/postcss": "^4.1.8",
+        "postcss": "^8.5.4",
+        "tailwindcss": "^4.1.8"
+    },
+    "scripts": {
+        "watch-tw": "npx @tailwindcss/cli -i ./assets/ui/main.tailwind.css -o ./assets/ui/tw.css --watch",
+        "watch-scss": "sass ./assets/ui/main.scss:./assets/ui/main.css --watch"
+    }
+}
