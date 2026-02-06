@@ -515,7 +515,7 @@
 }
 
 .launcher-play {
-  --pjs-selected-h: 440px;
+  --pjs-selected-h: 420px;
   display: flex;
   padding: 14px;
   color: #fff;
@@ -572,6 +572,7 @@
   height: 25px;
 }
 .launcher-play .pjs-selected {
+  margin-bottom: 1rem;
   height: var(--pjs-selected-h);
   margin-top: 2rem;
   display: grid;
@@ -796,7 +797,40 @@
 }
 .launcher-banner .btn-play {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+}
+.launcher-banner .btn-play .acquired {
+  display: block;
+  min-width: 300px;
+  width: auto;
+  border-left: 3px solid #0ea5e9;
+  padding: 5px 20px;
+  background-image: linear-gradient(90deg, rgba(6, 182, 212, 0.5), rgba(14, 165, 233, 0.5), transparent);
+}
+.launcher-banner .btn-play .acquired p {
+  color: #fff;
+  font-weight: 600;
+}
+.launcher-banner .btn-play ul {
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.launcher-banner .btn-play ul li figure {
+  width: 35px;
+  height: 35px;
+  border-radius: 100px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+}
+.launcher-banner .btn-play ul li figure img {
+  width: 100;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 .launcher-banner .btn-play button {
   border: 1px solid rgba(56, 189, 248, 0.5);
@@ -893,13 +927,18 @@
   left: 0;
   width: 100%;
   height: 100%;
-  pointer-events: none; /* No interfieren con los clics */
+  pointer-events: none;
+  /* No interfieren con los clics */
   overflow: hidden;
 }
 
-.particle-xs, .particle-sm, .particle-md, .particle-lg {
+.particle-xs,
+.particle-sm,
+.particle-md,
+.particle-lg {
   position: absolute;
-  background: #fff; /* O el color del elemento del pj */
+  background: #fff;
+  /* O el color del elemento del pj */
   border-radius: 50%;
   bottom: -10px;
   opacity: 0;
@@ -923,6 +962,65 @@
 .particle-lg {
   width: 10px;
   height: 10px;
+}
+
+/* From Uiverse.io by vinodjangid07 */
+.Btn-Container {
+  display: inline-flex;
+  width: 170px;
+  height: fit-content;
+  background-color: rgba(56, 189, 248, 0.2);
+  border-radius: 40px;
+  box-shadow: 0px 5px 10px rgba(56, 189, 248, 0.2);
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #38bdf8;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+}
+.Btn-Container:active {
+  transform: translateY(1px);
+}
+.Btn-Container:disabled {
+  opacity: 0.5;
+}
+.Btn-Container .text {
+  width: 125px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.1em;
+  letter-spacing: 1.2px;
+}
+.Btn-Container .icon-Container svg {
+  transition-duration: 1.5s;
+}
+.Btn-Container .icon-Container {
+  width: 45px;
+  height: 45px;
+  background-color: #bae6fd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 3px solid #38bdf8;
+}
+.Btn-Container:hover:not(.Btn-Container:disabled) .icon-Container svg {
+  transition-duration: 1.5s;
+  animation: arrow 1s linear infinite;
+}
+
+@keyframes arrow {
+  0% {
+    opacity: 0;
+    margin-left: 0px;
+  }
+  100% {
+    opacity: 1;
+    margin-left: 10px;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

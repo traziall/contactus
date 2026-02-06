@@ -2,7 +2,7 @@
 @use '../../vendor/colors' as *;
 
 .launcher-play {
-    --pjs-selected-h: 440px;
+    --pjs-selected-h: 420px;
     display: flex;
     padding: 14px;
     color: #fff;
@@ -64,6 +64,7 @@
     }
 
     .pjs-selected {
+        margin-bottom: 1rem;
         height: var(--pjs-selected-h);
         margin-top: 2rem;
         display: grid;

@@ -36,6 +36,31 @@ export const launcherPlay = {
                         </li>
                     </template>
                 </ul>
+                <div class="w-full text-center">
+                    <button class="Btn-Container" :disabled="!(pjsStore.complete())" @click="goBanner">
+                      <span class="text">Jugar</span>
+                      <span class="icon-Container">
+                        <svg
+                          width="16"
+                          height="19"
+                          viewBox="0 0 16 19"
+                          fill="nones"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <circle cx="1.61321" cy="1.61321" r="1.5" fill="black"></circle>
+                          <circle cx="5.73583" cy="1.61321" r="1.5" fill="black"></circle>
+                          <circle cx="5.73583" cy="5.5566" r="1.5" fill="black"></circle>
+                          <circle cx="9.85851" cy="5.5566" r="1.5" fill="black"></circle>
+                          <circle cx="9.85851" cy="9.5" r="1.5" fill="black"></circle>
+                          <circle cx="13.9811" cy="9.5" r="1.5" fill="black"></circle>
+                          <circle cx="5.73583" cy="13.4434" r="1.5" fill="black"></circle>
+                          <circle cx="9.85851" cy="13.4434" r="1.5" fill="black"></circle>
+                          <circle cx="1.61321" cy="17.3868" r="1.5" fill="black"></circle>
+                          <circle cx="5.73583" cy="17.3868" r="1.5" fill="black"></circle>
+                        </svg>
+                      </span>
+                    </button>
+                </div>
             </div>
         </section>
         <aside class="launcher-aside">
@@ -181,7 +206,9 @@ export const launcherPlay = {
         });
     },
     methods: {
-        // Función para limpiar y asignar refs por ID
+        goBanner() {
+            this.$emit('go-view', 'banner');
+        },
         setItemRef(el, id) {
             if (el) {
                 this.itemRefsA[id] = el;
@@ -189,7 +216,6 @@ export const launcherPlay = {
         },
 
         syncItemsA() {
-            // Filtra itemsA para quitar los que ya están en itemsB por nombre o ID
             this.itemsA = this.itemsA.filter(pjA =>
                 !this.itemsB.some(pjB =>
                     pjB.data && pjB.data.id === pjA.id
@@ -199,13 +225,10 @@ export const launcherPlay = {
 
         activateDrag() {
             this.$nextTick(() => {
-                // Convertimos el objeto de refs a un array para el helper
                 const elements = Object.values(this.itemRefsA);
                 dragHelper.enable(elements, {
                     onStart: (ev, el) => {
-                        // Buscamos el ID del elemento que se está arrastrando
                         const id = Object.keys(this.itemRefsA).find(key => this.itemRefsA[key] === el);
-                        // Buscamos el item real en itemsA usando ese ID
                         const item = this.itemsA.find(x => x.id == id);
                         this.currentDrag = { id: id, item: item };
                     },

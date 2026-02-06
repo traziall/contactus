@@ -1,22 +1,6 @@
-import { effectPlay } from '../effectPlay.js';
-import { pjsStore, deseosStore } from '../store.js';
+import { deseosStore, pjsStore } from '../store.js';
 
 export const launcherBanner = {
-    data: () => ({
-        pjsStore: pjsStore(),
-        deseosStore: deseosStore(),
-        randoms: [], // los 10 ítems generados
-        activeIndex: 0,
-        spinning: false,
-
-        cycles: 0,
-        maxCycles: 0,
-        slowdownSteps: 0,
-        finalIndex: 0,
-
-        intervalId: null,
-    }),
-    mounted() {},
     template: /* html */`
     <div class="launcher-banner" ref="banner">
             <section class="banner-content">
@@ -37,10 +21,22 @@ export const launcherBanner = {
                     </ul>
                 </div>
                 <div class="btn-play">
+                    <div class="acquired">
+                        <p>Adquiridos</p>
+                        <ul>
+                            <template v-for="item in adquired">
+                                <li>
+                                    <figure>
+                                        <img :src="'assets/img/' + item.avatar" alt="">
+                                    </figure>
+                                </li>
+                            </template>
+                        </ul>
+                    </div>
                     <button type="button" :disabled="spinning" @click="startPlay($event)">
                         <span>{{ deseos }}</span>
                         <img class="mr-2 inline-block" width="40" src="assets/img/Objeto_Destino_entrelazado.webp" alt="">
-                        <span>Pedir deseo</span>
+                        <span>{{ deseos > 0 ? 'Pedir deseo' : 'Reiniciar' }}</span>
                     </button>
                 </div>
             </section>
@@ -63,12 +59,38 @@ export const launcherBanner = {
             </aside>
         </div>
     `,
+    data: () => ({
+        pjsStore: pjsStore(),
+        deseosStore: deseosStore(),
+        randoms: [], // los 10 ítems generados
+        activeIndex: 0,
+        spinning: false,
+
+        cycles: 0,
+        maxCycles: 0,
+        slowdownSteps: 0,
+        finalIndex: 0,
+
+        intervalId: null,
+    }),
+    mounted() {},
     methods: {
+        goBanner() {
+            this.$emit('go-view', 'home');
+        },
         startPlay(e) {
             // prepara los 10 ítems
             const deseos = this.deseosStore.counter;
             const pjs = this.pjsStore.pjs.every(x => x.data);
-            if(deseos === 0 || !pjs) return;
+            if(deseos === 0 || !pjs) {
+                if(deseos === 0) {
+                    this.pjsStore.clear();
+                    this.deseosStore.update(5);
+                    this.deseosStore.clarAcquired();
+                    this.goBanner();
+                }
+                return;
+            };
             this.generateItems();
             this.startRoulette();
             this.deseosStore.update(deseos - 1);
@@ -191,6 +213,8 @@ export const launcherBanner = {
             const current = this.randoms[this.activeIndex];
             current.activeEnd = true;
 
+            this.deseosStore.addAcquired(current);
+
             this.spinning = false;
         }
     },
@@ -200,6 +224,9 @@ export const launcherBanner = {
         },
         selected() {
             return this.pjsStore.pjs;
+        },
+        adquired() {
+            return this.deseosStore.acquired;
         }
     }
 };

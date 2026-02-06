@@ -7,6 +7,6 @@
     },
     "scripts": {
         "watch-tw": "npx @tailwindcss/cli -i ./assets/ui/main.tailwind.css -o ./assets/ui/tw.css --watch",
-        "watch-scss": "sass ./assets/ui/main.scss:./assets/ui/main.css --watch"
+        "watch-sass": "sass ./assets/ui/main.scss:./assets/ui/main.css --watch"
     }
 }

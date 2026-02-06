@@ -27,12 +27,12 @@ export const launcher = {
         ],
         view: 'home',
         bg: 'bg-genshi.jpg'
-    }),
+    }),/*
     mounted() {
-        // this.goView('banner');
+        this.goView('banner');
         this.show = true;
         this.isLoading = false;
-    },
+    },*/
     template: /* html */`
     <div class="app-launcher" v-if="show">
         <template v-if="isLoading">
@@ -58,10 +58,10 @@ export const launcher = {
                 </header>
                 <section>
                     <template v-if="view === 'home'">
-                        <launcher-play></launcher-play>
+                        <launcher-play @go-view="goView"></launcher-play>
                     </template>
                     <template v-if="view === 'banner'">
-                        <launcher-banner></launcher-banner>
+                        <launcher-banner @go-view="goView"></launcher-banner>
                     </template>
                 </section>
             </div>
