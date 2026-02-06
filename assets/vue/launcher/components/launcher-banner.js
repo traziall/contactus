@@ -137,8 +137,8 @@ export const launcherBanner = {
                 return {
                     img: 'genshi-arma.webp',
                     avatar: 'genshi-arma.webp',
-                    name: '???',
-                    type: 'trash',
+                    name: 'Espadon',
+                    type: 'cryo',
                     active: false,
                     activeEnd: false
                 };
