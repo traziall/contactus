@@ -37,11 +37,13 @@
     >li {
         display: block;
 
+        a,
         button {
             width: var(--access-w);
             height: var(--access-w);
             box-shadow: shadow_i();
             border-radius: 12px;
+            display: block;
             overflow: hidden;
             border: 3px solid rgba(#8AC9FF, 0.3);
             transition: 80ms linear;

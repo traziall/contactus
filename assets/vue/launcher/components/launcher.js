@@ -27,12 +27,12 @@ export const launcher = {
         ],
         view: 'home',
         bg: 'bg-genshi.jpg'
-    }),/*
+    })/*,
     mounted() {
         this.goView('banner');
         this.show = true;
         this.isLoading = false;
-    },*/
+    }*/,
     template: /* html */`
     <div class="app-launcher" v-if="show">
         <template v-if="isLoading">

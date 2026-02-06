@@ -3,61 +3,82 @@ import { deseosStore, pjsStore } from '../store.js';
 export const launcherBanner = {
     template: /* html */`
     <div class="launcher-banner" ref="banner">
-            <section class="banner-content">
-                <div class="elements">
-                    <ul>
-                        <li v-for="(item, i) in randoms" :key="i"
-                            :class="[{active: item.active}, { 'active-end': item.activeEnd }]">
-
-                            <figure class="bg">
-                                <img :src="'assets/img/' + item.img" alt="">
-                            </figure>
-
-                            <figure class="avatar">
-                                <img :src="'assets/img/' + item.avatar" alt="">
-                            </figure>
-
-                        </li>
-                    </ul>
-                </div>
-                <div class="btn-play">
-                    <div class="acquired">
-                        <p>Adquiridos</p>
-                        <ul>
-                            <template v-for="item in adquired">
-                                <li>
-                                    <figure>
-                                        <img :src="'assets/img/' + item.avatar" alt="">
-                                    </figure>
-                                </li>
-                            </template>
-                        </ul>
-                    </div>
-                    <button type="button" :disabled="spinning" @click="startPlay($event)">
-                        <span>{{ deseos }}</span>
-                        <img class="mr-2 inline-block" width="40" src="assets/img/Objeto_Destino_entrelazado.webp" alt="">
-                        <span>{{ deseos > 0 ? 'Pedir deseo' : 'Reiniciar' }}</span>
-                    </button>
-                </div>
-            </section>
-
-            <aside class="banner-aside">
+        <section class="banner-content">
+            <div class="elements">
                 <ul>
-                    <template v-for="item in selected">
-                        <template v-if="item.data">
-                            <li :class="item.data.type">
-                                <div class="content">
-                                    <h6>{{ item.data.name }}</h6>
-                                </div>
+                    <li v-for="(item, i) in randoms" :key="i"
+                        :class="[{active: item.active}, { 'active-end': item.activeEnd }]">
+
+                        <figure class="bg">
+                            <img :src="'assets/img/' + item.img" alt="">
+                        </figure>
+
+                        <figure class="avatar">
+                            <img :src="'assets/img/' + item.avatar" alt="">
+                        </figure>
+
+                    </li>
+                </ul>
+            </div>
+            <div class="btn-play">
+                <div class="acquired">
+                    <p>Adquiridos</p>
+                    <ul>
+                        <template v-for="item in adquired">
+                            <li>
                                 <figure>
-                                    <img :src="'assets/img/' + item.data.avatar" alt="">
+                                    <img :src="'assets/img/' + item.avatar" alt="">
                                 </figure>
                             </li>
                         </template>
+                    </ul>
+                </div>
+                <button type="button" :disabled="spinning" @click="startPlay($event)">
+                    <span>{{ deseos }}</span>
+                    <img class="mr-2 inline-block" width="40" src="assets/img/Objeto_Destino_entrelazado.webp" alt="">
+                    <span>{{ deseos > 0 ? 'Pedir deseo' : 'Reiniciar' }}</span>
+                </button>
+            </div>
+        </section>
+
+        <aside class="banner-aside">
+            <ul>
+                <template v-for="item in selected">
+                    <template v-if="item.data">
+                        <li :class="item.data.type">
+                            <div class="content">
+                                <h6>{{ item.data.name }}</h6>
+                            </div>
+                            <figure>
+                                <img :src="'assets/img/' + item.data.avatar" alt="">
+                            </figure>
+                        </li>
                     </template>
-                </ul>
-            </aside>
-        </div>
+                </template>
+            </ul>
+        </aside>
+        <template v-if="acquiredItem">
+            <div class="banner-acquired">
+                <div class="content">
+                    <figure>
+                        <img :src="'assets/img/' + acquiredItem.img" alt="">
+                    </figure>
+                    <div class="titles">
+                        <h2>{{ acquiredItem.name }}</h2>
+                        <p>
+                            <img :src="'assets/img/genshi-icon-element-' + acquiredItem.type + '.png'" alt="">
+                            <span>{{ acquiredItem.type }}</span>
+                        </p>
+                    </div>
+                    <section>
+                        <button type="button" @click="acquiredItem = null">
+                            Aceptar
+                        </button>
+                    </section>
+                </div>
+            </div>
+        </template>
+    </div>
     `,
     data: () => ({
         pjsStore: pjsStore(),
@@ -70,6 +91,7 @@ export const launcherBanner = {
         maxCycles: 0,
         slowdownSteps: 0,
         finalIndex: 0,
+        acquiredItem: null,
 
         intervalId: null,
     }),
@@ -213,6 +235,7 @@ export const launcherBanner = {
             const current = this.randoms[this.activeIndex];
             current.activeEnd = true;
 
+            this.acquiredItem = current;
             this.deseosStore.addAcquired(current);
 
             this.spinning = false;
