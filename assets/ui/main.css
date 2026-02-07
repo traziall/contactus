@@ -396,6 +396,9 @@
 
 .app-access {
   --access-w: 70px;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -924,6 +927,11 @@
 }
 
 .banner-acquired {
+  --shadow-color: rgba(14, 165, 233, 0.7);
+  --border-color: #0ea5e9;
+  --btn-border-color: rgba(14, 165, 233, 0.5);
+  --btn-bg-color: rgba(14, 165, 233, 0.2);
+  --btn-bg-color2: rgba(14, 165, 233, 0.3);
   border-radius: 10px;
   position: absolute;
   top: -42px;
@@ -935,8 +943,17 @@
   justify-content: center;
   z-index: 5;
   backdrop-filter: blur(5px);
+  background-color: var(--btn-bg-color2);
+}
+.banner-acquired .effect-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 .banner-acquired .content {
+  z-index: 1;
   position: relative;
   color: #fff;
 }
@@ -954,7 +971,7 @@
 .banner-acquired .content .titles p {
   padding: 5px 22px;
   border-radius: 100px;
-  background-color: rgba(204, 251, 241, 0.2);
+  background-color: rgba(255, 255, 255, 0.2);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -966,25 +983,75 @@
 }
 .banner-acquired .content figure {
   display: block;
+  transform: scale(0.75);
+  opacity: 0;
   border-radius: 100rem;
   overflow: hidden;
   width: 400px;
   height: 400px;
-  border: 2px solid #0ea5e9;
+  border: 2px solid var(--border-color);
   border-top: none;
   border-bottom: none;
-  box-shadow: 0 0 25px 5px rgba(14, 165, 233, 0.7);
+  box-shadow: 0 0 25px 5px var(--shadow-color);
+  transition: 150ms ease-in-out;
+  transition-property: transform, opacity;
+}
+.banner-acquired .content figure.active {
+  transform: scale(1);
+  opacity: 1;
 }
 .banner-acquired .content section {
   text-align: center;
 }
 .banner-acquired .content section button {
   display: inline-block;
-  border: 1px solid rgba(14, 165, 233, 0.5);
-  background-color: rgba(14, 165, 233, 0.2);
+  border: 1px solid var(--btn-border-color);
+  background-color: var(--btn-bg-color);
   padding: 8px 40px;
   border-radius: 100px;
   margin-top: 5px;
+}
+.banner-acquired.pyro {
+  --shadow-color: rgba(239, 68, 68, 0.7);
+  --border-color: #ef4444;
+  --btn-border-color: rgba(239, 68, 68, 0.5);
+  --btn-bg-color: rgba(239, 68, 68, 0.2);
+  --btn-bg-color2: rgba(239, 68, 68, 0.3);
+}
+.banner-acquired.cryo {
+  --shadow-color: rgba(14, 165, 233, 0.7);
+  --border-color: #0ea5e9;
+  --btn-border-color: rgba(14, 165, 233, 0.5);
+  --btn-bg-color: rgba(14, 165, 233, 0.2);
+  --btn-bg-color2: rgba(14, 165, 233, 0.3);
+}
+.banner-acquired.electro {
+  --shadow-color: rgba(168, 85, 247, 0.7);
+  --border-color: #a855f7;
+  --btn-border-color: rgba(168, 85, 247, 0.5);
+  --btn-bg-color: rgba(168, 85, 247, 0.2);
+  --btn-bg-color2: rgba(168, 85, 247, 0.3);
+}
+.banner-acquired.dendro {
+  --shadow-color: rgba(34, 197, 94, 0.7);
+  --border-color: #22c55e;
+  --btn-border-color: rgba(34, 197, 94, 0.5);
+  --btn-bg-color: rgba(34, 197, 94, 0.2);
+  --btn-bg-color2: rgba(34, 197, 94, 0.3);
+}
+.banner-acquired.geo {
+  --shadow-color: rgba(245, 158, 11, 0.7);
+  --border-color: #f59e0b;
+  --btn-border-color: rgba(245, 158, 11, 0.5);
+  --btn-bg-color: rgba(245, 158, 11, 0.2);
+  --btn-bg-color2: rgba(245, 158, 11, 0.3);
+}
+.banner-acquired.anemo {
+  --shadow-color: rgba(6, 182, 212, 0.7);
+  --border-color: #06b6d4;
+  --btn-border-color: rgba(6, 182, 212, 0.5);
+  --btn-bg-color: rgba(6, 182, 212, 0.2);
+  --btn-bg-color2: rgba(6, 182, 212, 0.3);
 }
 
 /* Estilos base para las partículas */

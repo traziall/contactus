@@ -1,4 +1,5 @@
 import { deseosStore, pjsStore } from '../store.js';
+import { dialogAcquired } from './dialo-acquired.js';
 
 export const launcherBanner = {
     template: /* html */`
@@ -58,28 +59,19 @@ export const launcherBanner = {
             </ul>
         </aside>
         <template v-if="acquiredItem">
-            <div class="banner-acquired">
-                <div class="content">
-                    <figure>
-                        <img :src="'assets/img/' + acquiredItem.img" alt="">
-                    </figure>
-                    <div class="titles">
-                        <h2>{{ acquiredItem.name }}</h2>
-                        <p>
-                            <img :src="'assets/img/genshi-icon-element-' + acquiredItem.type + '.png'" alt="">
-                            <span>{{ acquiredItem.type }}</span>
-                        </p>
-                    </div>
-                    <section>
-                        <button type="button" @click="acquiredItem = null">
-                            Aceptar
-                        </button>
-                    </section>
-                </div>
-            </div>
+            <dialo-acquired
+            :img="acquiredItem.img"
+            :type="acquiredItem.type"
+            :color="acquiredItem.color"
+            :name="acquiredItem.name"
+            @on-action="reserAcquired"
+            ></dialo-acquired>
         </template>
     </div>
     `,
+    components: {
+        "dialo-acquired": dialogAcquired
+    },
     data: () => ({
         pjsStore: pjsStore(),
         deseosStore: deseosStore(),
@@ -97,6 +89,9 @@ export const launcherBanner = {
     }),
     mounted() {},
     methods: {
+        reserAcquired() {
+            this.acquiredItem = null;
+        },
         goBanner() {
             this.$emit('go-view', 'home');
         },
@@ -130,6 +125,7 @@ export const launcherBanner = {
                         avatar: pj.data.avatar,
                         name: pj.data.name,
                         type: pj.data.type,
+                        color: pj.data.color,
                         active: false,
                         activeEnd: false
                     };
@@ -139,6 +135,7 @@ export const launcherBanner = {
                     avatar: 'genshi-arma.webp',
                     name: 'Espadon',
                     type: 'cryo',
+                    color: '#0ea5e9',
                     active: false,
                     activeEnd: false
                 };

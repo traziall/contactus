@@ -319,5 +319,8 @@ export const launcherPlay = {
             this.itemRefsA = {};
             this.activateDrag();
         }
+    },
+    unmounted() {
+        this.instances.forEach(x => x.destroy())
     }
 };
