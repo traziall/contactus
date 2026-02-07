@@ -14,8 +14,11 @@ createApp({
     },
     methods: {
         show() {
+            this.isShow = true;
             this.$refs.launcherRef.start();
-            // console.log(this.$refs.launcher);
-        }
+        },
+        alternateShow() {
+            this.$refs.launcherRef.alternateShow();
+        },
     }
 }).use(createPinia()).mount('#app');

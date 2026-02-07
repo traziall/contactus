@@ -28,19 +28,30 @@
                     </a>
                 </li>
             </ul>
-            <app-launcher ref="launcherRef"></app-launcher>
+            <app-launcher ref="launcherRef" @on-show="isShow = false"></app-launcher>
         </section>
         <menu class="panel-menu">
             <ul class="apps-control">
                 <li>
-                    <!-- <button>
+                    <button type="button">
+                        <figure>
+                            <i class="mir mi-window"></i>
+                        </figure>
+                    </button>
+                </li>
+                <li>
+                    <fieldset>
+                        <i class="mir mi-search"></i>
+                        <input type="text">
+                    </fieldset>
+                </li>
+                <li v-if="isShow">
+                    <button type="button" @click="alternateShow()">
                         <figure>
                             <img src="assets/img/ico-genshi.jpg" alt="">
                         </figure>
-                    </button> -->
+                    </button>
                 </li>
-                <li>a</li>
-                <li>a</li>
             </ul>
         </menu>
     </main>

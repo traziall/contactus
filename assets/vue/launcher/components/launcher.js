@@ -1,38 +1,9 @@
 import { launcherPlay } from "./launcher-play.js";
 import { launcherBanner } from "./launcher-banner.js";
 import { interactHelper } from "../interactHelper.js";
+import { deseosStore, pjsStore } from '../store.js';
 
 export const launcher = {
-    components: {
-        "launcher-play": launcherPlay,
-        "launcher-banner": launcherBanner,
-    },
-    data: () => ({
-        show: false,
-        isLoading: true,
-        classLoading: '',
-        views: [
-            {
-                id: 'home',
-                icon: 'mi-quiz'
-            },
-            {
-                id: 'banner',
-                icon: 'mi-auto_awesome'
-            },
-            {
-                id: 'close',
-                icon: 'mi-close'
-            },
-        ],
-        view: 'home',
-        bg: 'bg-genshi.jpg'
-    })/*,
-    mounted() {
-        this.goView('banner');
-        this.show = true;
-        this.isLoading = false;
-    }*/,
     template: /* html */`
     <div class="app-launcher" v-if="show">
         <template v-if="isLoading">
@@ -68,9 +39,41 @@ export const launcher = {
         </template>
     </div>
     `,
+    components: {
+        "launcher-play": launcherPlay,
+        "launcher-banner": launcherBanner,
+    },
+    data: () => ({
+        pjsStore: pjsStore(),
+        deseosStore: deseosStore(),
+        show: false,
+        isLoading: true,
+        classLoading: '',
+        views: [
+            {
+                id: 'home',
+                icon: 'mi-quiz'
+            },
+            {
+                id: 'banner',
+                icon: 'mi-auto_awesome'
+            },
+            {
+                id: 'close',
+                icon: 'mi-close'
+            },
+        ],
+        view: 'home',
+        bg: 'bg-genshi.jpg'
+    })/*,
+    mounted() {
+        this.goView('banner');
+        this.show = true;
+        this.isLoading = false;
+    }*/,
     methods: {
         start() {
-            this.show = !this.show;
+            this.show = true;
             this.isLoading = true;
             this.classLoading = '';
             setTimeout(() => {
@@ -80,6 +83,9 @@ export const launcher = {
                 this.isLoading = false;
                 this.move();
             }, 3500)
+        },
+        alternateShow() {
+            this.show = !this.show;
         },
         move() {
             setTimeout(() => {
@@ -100,9 +106,14 @@ export const launcher = {
                     this.bg = 'bg-genshi-2.png';
                 break
                 case 'close':
+                    this.bg = 'bg-genshi.jpg';
+                    this.view = 'home';
                     this.show = false;
                     this.isLoading = true;
-                    this.view = 'home';
+                    this.pjsStore.clear();
+                    this.deseosStore.clarAcquired();
+                    this.deseosStore.update(5);
+                    this.$emit('on-show')
                 break
             }
         }
