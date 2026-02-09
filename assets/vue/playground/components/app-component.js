@@ -1,12 +1,10 @@
 import { interactHelper } from "../../launcher/interactHelper.js";
 import { ToggleHelper } from "../scripts.js";
+import { storeComponents } from "../store-playground.js";
 
 export const appComponent = {
     template: /* html */`
-    <div class="card-form" :style="{
-        left: data.position.x + 'px',
-        top: data.position.y + 'px'
-      }" :data-id="data.id">
+    <div class="card-form" :style="{ left: data.position.x + 'px', top: data.position.y + 'px' }" :data-id="data.id">
         <ul class="card-controls">
             <li>
                 <button type="button" class="button">
@@ -27,7 +25,7 @@ export const appComponent = {
                 </button>
             </li>
             <li>
-                <button type="button" class="button red">
+                <button type="button" class="button red" @click="remove()">
                     <i class="mir mi-delete"></i>
                 </button>
             </li>
@@ -58,6 +56,9 @@ export const appComponent = {
                             </div>
                         </div>
                         <span class="badge badge-danger position-left"></span>
+                        <span class="zone-drag">
+                            <i class="mir mi-drag_indicator"></i>
+                        </span>
                     </li>
                 </template>
                 <template v-if="item.type === 'text'">
@@ -70,6 +71,9 @@ export const appComponent = {
                             </div>
                         </div>
                         <span class="badge badge-danger position-left"></span>
+                        <span class="zone-drag">
+                            <i class="mir mi-drag_indicator"></i>
+                        </span>
                     </li>
                 </template>
                 <template v-if="item.type === 'number'">
@@ -81,6 +85,9 @@ export const appComponent = {
                             </div>
                         </div>
                         <span class="badge badge-success position-right"></span>
+                        <span class="zone-drag">
+                            <i class="mir mi-drag_indicator"></i>
+                        </span>
                     </li>
                 </template>
                 <template v-if="item.type === 'label'">
@@ -89,14 +96,21 @@ export const appComponent = {
                             <i class="mir mi-remove_red_eye"></i>
                             <p>Lorem, ipsum.</p>
                         </div>
+                        <span class="zone-drag">
+                            <i class="mir mi-drag_indicator"></i>
+                        </span>
                     </li>
                 </template>
                 <template v-if="item.type === 'text-out'">
                     <li>
                         <div class="card-fieldset">
-                            <label for="">lorem <i class="mio mi-info"></i></label>
+                            <label for="">Title <i class="mio mi-info"></i></label>
+                            <p>lorem</p>
                         </div>
                         <span class="badge badge-info position-left"></span>
+                        <span class="zone-drag">
+                            <i class="mir mi-drag_indicator"></i>
+                        </span>
                     </li>
                 </template>
             </template>
@@ -111,6 +125,9 @@ export const appComponent = {
             </template>
         </ul>
     </div>`,
+    data: () => ({
+        components: storeComponents()
+    }),
     props: {
         data: {
             type: Object,
@@ -118,15 +135,15 @@ export const appComponent = {
         }
     },
     mounted() {
-        this.toggle()
+        this.toggle();
+        this.sortable();
     },
     methods: {
         toggle() {
             const elements = this.$el;
-            const control = elements.querySelector('.card-controls');
             new ToggleHelper(elements, {
-                target: control,
-                focusMode: 'lock'
+                focusMode: 'lock',
+                classToggle: 'active'
             })
             interactHelper.move(elements, {
                 handles: elements.querySelector('.drag'),
@@ -136,6 +153,15 @@ export const appComponent = {
                 onEnd: () => {
                     elements.classList.remove('user-none');
                 }
+            });
+        },
+        remove() {
+            this.components.remove(this.data.id)
+        },
+        sortable() {
+            new Sortable(this.$el.querySelector(".card-form-body"), {
+              animation: 150,
+              handle: ".zone-drag",
             });
         }
     }

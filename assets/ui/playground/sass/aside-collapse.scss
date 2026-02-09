@@ -117,18 +117,29 @@
 
     .collapse-footer {
         border-top: 1px solid var(--color-gray-200);
+        padding: 20px;
 
         .buttom-add {
+            border-radius: 6px;
             display: block;
             text-align: center;
             width: 100%;
             font-size: .9rem;
             color: var(--color-slate-400);
-            padding: 20px 25px;
+            padding: 10px 25px;
+            background-color: #79CC79;
+            color: #fff;
 
             >i {
                 display: inline-block;
+                margin-right: 0.5rem;
                 transform: scale(1.25);
+            }
+            &:hover {
+                background-color: #65CA65;
+            }
+            &:active {
+                background-color: #55B055;
             }
         }
     }

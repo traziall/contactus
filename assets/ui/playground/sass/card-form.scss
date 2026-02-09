@@ -9,7 +9,14 @@
     position: fixed;
 
     &.active {
+        z-index: 20;
         border-color: var(--color-slate-500);
+        .card-controls {
+            display: flex;
+        }
+        .zone-drag {
+            visibility: visible !important;
+        }
     }
 
     &.user-none {
@@ -52,12 +59,29 @@
     .card-form-body {
         padding: 15px 0;
         .card-fieldset {
-
             label {
+                width: 100%;
                 i {
                     vertical-align: middle;
                 }
             }
+        }
+        .zone-drag {
+            visibility: hidden;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            color: #AAAAAA;
+            width: 25px;
+            cursor: move;
+            position: absolute;
+            left: -25px;
+            transition: right 150ms ease-in;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 45px;
+            background-color: #fff;
+            border-radius: 10px 0 0 10px;
         }
         .input {
             --input-padding: 8px;
@@ -100,10 +124,13 @@
         }
 
         li {
+            background-color: #fff;
             position: relative;
             .badge {
                 position: absolute;
                 width: 9px;
+                display: block;
+                z-index: 1;
                 height: 9px;
                 background-color: var(--color-slate-400);
                 outline: 2px solid var(--color-slate-200);
@@ -186,7 +213,7 @@
     bottom: 100%;
     left: 50%;
     transform: translateX(-50%);
-    display: flex;
+    display: none;
     margin-bottom: .75rem;
     background-color: var(--color-white);
     box-shadow: var(--shadow-md);

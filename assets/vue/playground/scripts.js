@@ -277,7 +277,9 @@ export class ToggleHelper {
         let list = [];
 
         // ROOT
-        if (t === 'root') return [this.el];
+        if (t === 'root') {
+            return [this.el]
+        };
 
         // HTMLElement directo
         if (t instanceof HTMLElement) return [t];

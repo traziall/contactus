@@ -395,18 +395,29 @@ button {
 }
 .aside-collapse .collapse-footer {
   border-top: 1px solid var(--color-gray-200);
+  padding: 20px;
 }
 .aside-collapse .collapse-footer .buttom-add {
+  border-radius: 6px;
   display: block;
   text-align: center;
   width: 100%;
   font-size: 0.9rem;
   color: var(--color-slate-400);
-  padding: 20px 25px;
+  padding: 10px 25px;
+  background-color: #79CC79;
+  color: #fff;
 }
 .aside-collapse .collapse-footer .buttom-add > i {
   display: inline-block;
+  margin-right: 0.5rem;
   transform: scale(1.25);
+}
+.aside-collapse .collapse-footer .buttom-add:hover {
+  background-color: #65CA65;
+}
+.aside-collapse .collapse-footer .buttom-add:active {
+  background-color: #55B055;
 }
 
 .drag-items > li + li {
@@ -509,7 +520,14 @@ button {
   position: fixed;
 }
 .card-form.active {
+  z-index: 20;
   border-color: var(--color-slate-500);
+}
+.card-form.active .card-controls {
+  display: flex;
+}
+.card-form.active .zone-drag {
+  visibility: visible !important;
 }
 .card-form.user-none {
   user-select: none;
@@ -545,8 +563,28 @@ button {
 .card-form .card-form-body {
   padding: 15px 0;
 }
+.card-form .card-form-body .card-fieldset label {
+  width: 100%;
+}
 .card-form .card-form-body .card-fieldset label i {
   vertical-align: middle;
+}
+.card-form .card-form-body .zone-drag {
+  visibility: hidden;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  color: #AAAAAA;
+  width: 25px;
+  cursor: move;
+  position: absolute;
+  left: -25px;
+  transition: right 150ms ease-in;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 45px;
+  background-color: #fff;
+  border-radius: 10px 0 0 10px;
 }
 .card-form .card-form-body .input {
   --input-padding: 8px;
@@ -584,11 +622,14 @@ button {
   margin-top: 5px;
 }
 .card-form .card-form-body li {
+  background-color: #fff;
   position: relative;
 }
 .card-form .card-form-body li .badge {
   position: absolute;
   width: 9px;
+  display: block;
+  z-index: 1;
   height: 9px;
   background-color: var(--color-slate-400);
   outline: 2px solid var(--color-slate-200);
@@ -666,7 +707,7 @@ button {
   bottom: 100%;
   left: 50%;
   transform: translateX(-50%);
-  display: flex;
+  display: none;
   margin-bottom: 0.75rem;
   background-color: var(--color-white);
   box-shadow: var(--shadow-md);

@@ -4,9 +4,9 @@ import { appComponent } from "./app-component.js";
 export const appComponents = {
     template: /* html */`
     <section>
-        <template v-for="item in items">
+        <div v-for="item in items" :key="item.id">
             <app-component :data="item"></app-component>
-        </template>
+        </div>
     </section>
     `,
     components: {
