@@ -10,39 +10,39 @@ export const dragHelper = {
      * @param {Function} onDrop
      */
     enable(elements, { onStart, onMove, onDrop }) {
-    // destruye cualquier instancia anterior
-    this.destroy();
+        // destruye cualquier instancia anterior
+        this.destroy();
 
-    elements.forEach((el) => {
-        if (!el) return; // evita refs nulas
+        elements.forEach((el) => {
+            if (!el) return; // evita refs nulas
 
-        const instance = interact(el).draggable({
-            listeners: {
-                start: (event) => onStart && onStart(event, el),
-                move: (event) => {
-                    const x = (parseFloat(el.getAttribute('data-x')) || 0) + event.dx;
-                    const y = (parseFloat(el.getAttribute('data-y')) || 0) + event.dy;
+            const instance = interact(el).draggable({
+                listeners: {
+                    start: (event) => onStart && onStart(event, el),
+                    move: (event) => {
+                        const x = (parseFloat(el.getAttribute('data-x')) || 0) + event.dx;
+                        const y = (parseFloat(el.getAttribute('data-y')) || 0) + event.dy;
 
-                    el.style.transform = `translate(${x}px, ${y}px)`;
-                    el.setAttribute('data-x', x);
-                    el.setAttribute('data-y', y);
+                        el.style.transform = `translate(${x}px, ${y}px)`;
+                        el.setAttribute('data-x', x);
+                        el.setAttribute('data-y', y);
 
-                    onMove && onMove({ x, y, el, event });
-                },
-                end: (event) => {
-                    onDrop && onDrop(event, el);
+                        onMove && onMove({ x, y, el, event });
+                    },
+                    end: (event) => {
+                        onDrop && onDrop(event, el);
 
-                    // reset visual
-                    el.style.transform = "translate(0,0)";
-                    el.removeAttribute('data-x');
-                    el.removeAttribute('data-y');
+                        // reset visual
+                        el.style.transform = "translate(0,0)";
+                        el.removeAttribute('data-x');
+                        el.removeAttribute('data-y');
+                    }
                 }
-            }
-        });
+            });
 
-        this.draggables.push(instance);
-    });
-},
+            this.draggables.push(instance);
+        });
+    },
 
     /**
      * Destruye todos los draggables activos

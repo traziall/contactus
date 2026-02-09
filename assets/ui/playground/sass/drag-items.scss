@@ -1,0 +1,33 @@
+.drag-items {
+    >li+li {
+        margin-top: .25rem;
+    }
+
+    .drag-item {
+        display: block;
+        background-color: var(--color-gray-100);
+        border-radius: 7px;
+        padding: 14px 14px;
+        cursor: grab;
+
+        &.elevate {
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        }
+
+        &::after {
+            font-family: Material Icons Round;
+            content: '\e945';
+            display: block;
+            float: right;
+            color: var(--color-slate-400);
+        }
+
+        >i {
+            display: inline-block;
+            margin-right: .35rem;
+            &:first-child {
+                transform: scale(1.15);
+            }
+        }
+    }
+}

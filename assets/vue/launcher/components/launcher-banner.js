@@ -9,15 +9,12 @@ export const launcherBanner = {
                 <ul>
                     <li v-for="(item, i) in randoms" :key="i"
                         :class="[{active: item.active}, { 'active-end': item.activeEnd }]">
-
                         <figure class="bg">
                             <img :src="'assets/img/' + item.img" alt="">
                         </figure>
-
                         <figure class="avatar">
                             <img :src="'assets/img/' + item.avatar" alt="">
                         </figure>
-
                     </li>
                 </ul>
             </div>

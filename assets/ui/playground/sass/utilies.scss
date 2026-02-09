@@ -1,0 +1,46 @@
+
+.m {
+
+    &-x1,
+    &-r1 {
+        margin-right: .5rem;
+    }
+
+    &-x1,
+    &-l1 {
+        margin-left: .5rem;
+    }
+}
+
+.fw-bold {
+    font-weight: bold;
+}
+
+.fw-border {
+    font-weight: bolder;
+}
+
+$weight: 100, 200, 300, 400, 500, 600, 700, 800, 900;
+
+@each $value in $weight {
+    .fw-#{$value} {
+        font-weight: $value;
+    }
+}
+
+.w-full {
+    width: 100%;
+}
+
+.w-auto {
+    width: auto;
+}
+
+.w-grow {
+    flex-grow: 1;
+    flex-basis: 0;
+}
+
+.position-relative {
+    position: relative;
+}

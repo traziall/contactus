@@ -1,0 +1,106 @@
+:root {
+    --color-white: #fff;
+    --color-gray-100: #f3f4f6;
+    --color-gray-200: #e5e7eb;
+    --color-slate-100: #f1f5f9;
+    --color-slate-200: #e2e8f0;
+    --color-slate-300: #cbd5e1;
+    --color-slate-400: #94a3b8;
+    --color-slate-500: #64748b;
+    --color-green-200: #bbf7d0;
+    --color-green-500: #22c55e;
+    --color-green-700: #15803d;
+    --color-cyan-500: #06b6d4;
+    --color-cyan-200: #a5f3fc;
+    --color-blue-500: #3b82f6;
+    --color-blue-300: #93c5fd;
+    --color-red-500: #ef4444;
+    --color-red-300: #fca5a5;
+    --color-red-200: #fecaca;
+    --color-amber-400: #fbbf24;
+    --shadow-md: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Inter, system-ui, sans-serif;
+    background-color: var(--color-gray-100);
+    background-image: url('../../assets/img/bg-pattern-gray.png');
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-size: 20px;
+}
+
+ul,
+ol {
+    padding: 0;
+    list-style: none;
+}
+
+button {
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.mir {
+    vertical-align: middle;
+}
+
+
+@import 'playground/sass/utilies.scss';
+@import 'playground/sass/implements.scss';
+@import 'playground/sass/navegation-top.scss';
+@import 'playground/sass/aside-collapse.scss';
+@import 'playground/sass/drag-items.scss';
+@import 'playground/sass/menu-use.scss';
+@import 'playground/sass/card-form.scss';
+@import 'playground/sass/card-notifics.scss';
+@import 'playground/sass/modal.scss';
+
+.button-aside {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    display: inline-block;
+    padding: 12px 15px;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-gray-200);
+    border-radius: 7px;
+    color: var(--color-slate-400);
+    font-size: .9rem;
+}
+
+.buttons-playgroud {
+    font-size: .85rem;
+    box-shadow: var(--shadow-md);
+    border-radius: 8px;
+    display: inline-flex;
+    gap: 10px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-slate-100);
+}
+
+/* dialog */
+.margin-custom {
+    position: absolute;
+    top: 5rem;
+    left: 20%;
+    display: flex;
+    align-items: flex-start;
+
+    >*+* {
+        margin-left: 3rem;
+    }
+}

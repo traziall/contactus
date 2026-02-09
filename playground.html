@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traziall - playground</title>
+    <link rel="stylesheet" href="assets/vendor/material-icons/material-icons.css">
+    <link rel="stylesheet" href="assets/ui/playground.css">
+    <link rel="icon" type="image/x-icon" href="traziall-white-ico.ico">
+</head>
+<body>
+    <div id="app">
+        <section class="container">
+            <header class="header">
+                <nav-top></nav-top>
+            </header>
+            <section class="body position-relative">
+                <div class="w-auto">
+                    <app-aside></app-aside>
+                </div>
+                <div class="w-grow" ref="dropZoneRef">
+                    <div class="margin-custom">
+                        <btn-components></btn-components>
+                    </div>
+                </div>
+                <btn-float></btn-float>
+            </section>
+        </section>
+    </div>
+    <script src="assets/vendor/vue/vue-v3.js"></script>
+    <script src="assets/vendor/pinia/vue-demi.js"></script>
+    <script src="assets/vendor/pinia/pinia.iife.js"></script>
+    <script src="assets/vendor/interatc/interact.min.js"></script>
+    <script type="module" src="assets/vue/playground/main.js"></script>
+</body>
+</html>

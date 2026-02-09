@@ -1,0 +1,183 @@
+.card-form {
+    width: 285px;
+    display: block;
+    border: 1px solid;
+    border-color: var(--color-slate-100);
+    border-radius: 12px;
+    background-color: var(--color-white);
+    box-shadow: var(--shadow-md);
+    position: fixed;
+
+    &.active {
+        border-color: var(--color-slate-500);
+    }
+
+    &.user-none {
+        user-select: none;
+    }
+
+    .card-img-avatar {
+        width: 25px;
+        height: 25px;
+        border-radius: 100px;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .card-form-header {
+        padding: 18px;
+        border-bottom: 1px solid var(--color-slate-200);
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: .5rem;
+            align-items: center;
+            font-size: .8rem;
+
+            p {
+                flex-grow: 1;
+                flex-basis: 0;
+                padding-inline: 15px;
+            }
+        }
+
+        >p {
+            line-height: 1.400;
+            font-size: .8rem;
+            color: var(--color-slate-500);
+        }
+    }
+
+    .card-form-body {
+        padding: 15px 0;
+        .input {
+            --input-padding: 8px;
+            display: inline-flex;
+            position: relative;
+            align-items: center;
+            width: 100%;
+            border: 1px solid var(--color-slate-200);
+            border-radius: 6px;
+
+            >input {
+                width: 100%;
+                outline: none !important;
+                border: 0;
+                display: block;
+                padding: var(--input-padding);
+                background-color: transparent;
+            }
+
+            >i {
+                position: absolute;
+                color: var(--color-slate-400);
+                right: var(--input-padding);
+            }
+        }
+
+        > li.drag {
+            position: absolute;
+            top: 5px;
+            width: 30px;
+            height: 6px;
+            border-radius: 100px;
+            background-color: rgba(#808080, 0.3);
+            left: calc(50% - 15px);
+        }
+
+        > li + li {
+            margin-top: 5px;
+        }
+
+        li {
+            position: relative;
+            .badge {
+                position: absolute;
+                width: 9px;
+                height: 9px;
+                background-color: var(--color-slate-400);
+                outline: 2px solid var(--color-slate-200);
+                border-radius: 20px;
+                top: calc(50% - 5px);
+                &.position-left {
+                    left: -5px;
+                }
+                &.position-right {
+                    right: -5px;
+                }
+                &.badge-primary {
+                    background-color: var(--color-blue-500);
+                    outline-color: var(--color-blue-300);
+                }
+                &.badge-danger {
+                    background-color: var(--color-red-500);
+                    outline-color: var(--color-red-200);
+                }
+                &.badge-success {
+                    background-color: var(--color-green-500);
+                    outline-color: var(--color-green-200);
+                }
+                &.badge-info {
+                    background-color: var(--color-cyan-500);
+                    outline-color: var(--color-cyan-200);
+                }
+                &.badge-warning {
+                    background-color: var(--color-red-500);
+                }
+            }
+        }
+    }
+
+    .card-fieldset {
+        padding: 7px 17px;
+        .label,
+        label {
+            display: block;
+            margin-bottom: .25rem;
+            font-size: .75rem;
+            > i {
+                margin-left: .5rem;
+                color: var(--color-slate-400);
+            }
+        }
+    }
+
+    .card-item {
+        display: flex;
+        width: 100%;
+        padding: 8px 17px;
+        justify-content: space-between;
+        background-color: var(--color-slate-100);
+        > i {
+            color: var(--color-slate-400);
+        }
+        > p {
+            font-size: .8rem;
+        }
+    }
+}
+
+.card-controls {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    margin-bottom: .75rem;
+    background-color: var(--color-white);
+    box-shadow: var(--shadow-md);
+    border-radius: 10px;
+    padding: 5px;
+    button {
+        font-size: .85rem;
+        display: inline-flex;
+        border: none;
+        >span {
+            margin-left: .5rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+}

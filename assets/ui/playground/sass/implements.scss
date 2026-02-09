@@ -1,0 +1,73 @@
+.button {
+    background-color: #fff;
+    border: 1px solid var(--color-slate-200);
+    border-radius: 5px;
+    padding: 7px 8px;
+    font-size: .9rem;
+    user-select: none;
+
+    &.ui-basic {
+        border: none;
+    }
+
+    &:hover {
+        background-color: var(--color-slate-100);
+    }
+}
+
+.box {
+    background-color: #fff;
+    width: 150px;
+    padding: 15px;
+    border: 1px solid var(--color-gray-100);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.header {
+    height: auto;
+}
+
+.body {
+    flex-grow: 1;
+    display: flex;
+}
+
+.hide {
+    display: none;
+}
+
+
+.dropdown {
+    position: relative;
+
+    .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        display: none;
+
+        &.dropdown-right {
+            right: 0;
+        }
+
+        &.dropdown-left {
+            left: 0;
+        }
+
+        &.dropdown-open {
+            display: block;
+        }
+    }
+}
+
+.collapse-content {
+    display: none;
+
+    &.collapse-open {
+        display: block;
+    }
+}

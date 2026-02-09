@@ -27,10 +27,10 @@ export const tzGallery = {
 
     data: () => ({
         gallery: [
-            { link: "launcher.html", label: "Gamer", img: "assets/img/demo-1.png" }/*,
-            { link: "#", label: "Dashboard (dev)", img: "assets/img/demo-2.png" },
-            { link: "#", label: "Hoganizador (dev)", img: "" },
-            { link: "#", label: "App movil (dev)", img: "" }*/
+            { link: "launcher.html", label: "Gamer", img: "assets/img/demo-1.png" },
+            { link: "playground.html", label: "Playground", img: "assets/img/demo-2-2.png" },
+            //{ link: "#", label: "Hoganizador (dev)", img: "" },
+            //{ link: "#", label: "App movil (dev)", img: "" }
         ]
     })
 }

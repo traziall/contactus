@@ -5,30 +5,59 @@ export const interactHelper = {
             handles = null,
             inertia = false,
             restrict = null,
+            onStart = null,
             onMove = null,
             onEnd = null
         } = options;
 
-        // Selección de zonas donde agarrar
-        const selector = handles
-            ? (Array.isArray(handles) ? handles.join(", ") : handles)
-            : target; // si no hay handles, el elemento principal sirve
+        // --------------------------------------
+        // Normalizar handles a un selector válido
+        // --------------------------------------
+        const getHandleSelector = (handles) => {
+            if (!handles) return target; // fallback: el target entero
 
+            // Si es un nodo DOM
+            if (handles instanceof HTMLElement) {
+                return handles;
+            }
+
+            // Si es un array de nodos DOM
+            if (Array.isArray(handles) && handles.every(h => h instanceof HTMLElement)) {
+                return handles;
+            }
+
+            // Si es string
+            if (typeof handles === "string") {
+                return handles;
+            }
+
+            console.warn("⚠️ 'handles' no es válido:", handles);
+            return target;
+        };
+
+        const selector = getHandleSelector(handles);
+
+        // --------------------------------------
+        // Inicializar draggable
+        // --------------------------------------
         interact(selector).draggable({
-            inertia: inertia,
+            inertia,
 
             listeners: {
+                start(event) {
+                    if (onStart) onStart(event);
+                },
+
                 move(event) {
                     const el = target;
 
-                    // obtener posición actual
-                    const x = (parseFloat(el.getAttribute('data-x')) || 0) + event.dx;
-                    const y = (parseFloat(el.getAttribute('data-y')) || 0) + event.dy;
+                    const prevX = parseFloat(el.getAttribute('data-x')) || 0;
+                    const prevY = parseFloat(el.getAttribute('data-y')) || 0;
 
-                    // aplicar transformación
+                    const x = prevX + event.dx;
+                    const y = prevY + event.dy;
+
                     el.style.transform = `translate(${x}px, ${y}px)`;
-
-                    // guardar
                     el.setAttribute('data-x', x);
                     el.setAttribute('data-y', y);
 
@@ -48,7 +77,7 @@ export const interactHelper = {
                                 ? "parent"
                                 : restrict === "window"
                                     ? "self"
-                                    : restrict, // acepta objeto custom o selector
+                                    : restrict,
                         endOnly: true
                     })
                 ]
@@ -56,4 +85,3 @@ export const interactHelper = {
         });
     }
 };
-
