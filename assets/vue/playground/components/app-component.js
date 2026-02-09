@@ -1,4 +1,3 @@
-import { dragHelper } from "../../launcher/dragHelper.js";
 import { interactHelper } from "../../launcher/interactHelper.js";
 import { ToggleHelper } from "../scripts.js";
 
@@ -7,7 +6,7 @@ export const appComponent = {
     <div class="card-form" :style="{
         left: data.position.x + 'px',
         top: data.position.y + 'px'
-      }">
+      }" :data-id="data.id">
         <ul class="card-controls">
             <li>
                 <button type="button" class="button">
@@ -45,51 +44,48 @@ export const appComponent = {
         </div>
         <ul class="card-form-body item">
             <li class="drag"></li>
-            <li>
-                <div class="card-fieldset">
-                    <label for="">lorem <i class="bi bi-info-circle"></i></label>
-                    <div class="input">
-                        <input type="text">
-                        <i class="bi bi-arrow-repeat"></i>
-                    </div>
-                </div>
-                <span class="badge badge-danger position-left"></span>
-            </li>
-            <li>
-                <div class="card-fieldset">
-                    <label for="">lorem <i class="bi bi-info-circle"></i></label>
-                    <div class="input">
-                        <input type="text">
-                        <i class="bi bi-arrow-repeat"></i>
-                    </div>
-                </div>
-                <span class="badge badge-success position-right"></span>
-            </li>
-            <li>
-                <div class="card-fieldset">
-                    <label for="">lorem <i class="bi bi-info-circle"></i></label>
-                </div>
-                <span class="badge badge-info position-left"></span>
-            </li>
-            <li>
-                <div class="card-fieldset">
-                    <label for="">lorem <i class="bi bi-info-circle"></i></label>
-                </div>
-                <span class="badge badge-info position-left"></span>
-            </li>
-            <li>
-                <div class="card-item">
-                    <i class="bi bi-eye"></i>
-                    <p>Lorem, ipsum.</p>
-                </div>
-            </li>
-            <li>
-                <div class="card-item">
-                    <i class="bi bi-eye"></i>
-                    <p>Lorem, ipsum.</p>
-                </div>
-                <span class="badge badge-info position-left"></span>
-            </li>
+            <template v-for="item in data.assets">
+                <template v-if="item.type === 'text'">
+                    <li>
+                        <div class="card-fieldset">
+                            <label for="">lorem <i class="bi bi-info-circle"></i></label>
+                            <div class="input">
+                                <input type="text">
+                                <i class="mir mi-replay"></i>
+                            </div>
+                        </div>
+                        <span class="badge badge-danger position-left"></span>
+                    </li>
+                </template>
+                <template v-if="item.type === 'number'">
+                    <li>
+                        <div class="card-fieldset">
+                            <label for="">lorem <i class="bi bi-info-circle"></i></label>
+                            <div class="input">
+                                <input type="number">
+                                <i class="mir mi-replay"></i>
+                            </div>
+                        </div>
+                        <span class="badge badge-success position-right"></span>
+                    </li>
+                </template>
+                <template v-if="item.type === 'label'">
+                    <li>
+                        <div class="card-item">
+                            <i class="mir mi-remove_red_eye"></i>
+                            <p>Lorem, ipsum.</p>
+                        </div>
+                    </li>
+                </template>
+                <template v-if="item.type === 'text-out'">
+                    <li>
+                        <div class="card-fieldset">
+                            <label for="">lorem <i class="bi bi-info-circle"></i></label>
+                        </div>
+                        <span class="badge badge-info position-left"></span>
+                    </li>
+                </template>
+            </template>
         </ul>
     </div>`,
     props: {

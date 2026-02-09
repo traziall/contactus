@@ -29,18 +29,25 @@ createApp({
                 },
                 onDrop: (ev, el) => {
                     el.classList.remove('elevate');
-                    if (dragHelper.isInside(ev, this.$refs.dropZoneRef)) {
-                        console.log(ev);
-                        this.components.add({
-                            position: {
-                                x: ev.client.x,
-                                y: ev.client.y,
-                            },
-                            title: 'Queso con yuca'
-                        })
+                    const inside = dragHelper.isInside(ev, '.card-form');
+                    if (inside.isInside) {
+                        const id = Number(inside.zoneElement.dataset.id);
+                        const item = this.getItemGroup(Number(el.dataset.id), el.dataset.group);
+                        this.getItem(id, item)
                     }
                 }
             });
+        },
+        getItem(id, data) {
+            const item = this.components.item(id);
+            this.components.update(id, {
+                ...item,
+                assets: [...item.assets, data]
+            })
+        },
+        getItemGroup(id, name) {
+            const group = this.components.itemsComponents[name];
+            return group.find(x => x.id === id);
         }
     }
 }).use(createPinia()).mount('#app');

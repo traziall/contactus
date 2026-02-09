@@ -1,17 +1,19 @@
 export const dragItems = {
     template: /* html */`
     <ul class="drag-items">
-        <li>
-            <div class="drag-item">
-                <i class="bi bi-fonts"></i>
-                <span>Text Output</span>
-            </div>
-        </li>
-        <li>
-            <div class="drag-item">
-                <i class="bi bi-chat-left-text"></i>
-                <span>Chat Output</span>
-            </div>
-        </li>
+        <template v-for="item in items">
+            <li>
+                <div class="drag-item" :data-id="item.id" :data-group="item.group">
+                    <i class="mir" :class="item.icon"></i>
+                    <span>{{ item.label }}</span>
+                </div>
+            </li>
+        </template>
     </ul>`,
+    props: {
+        items: {
+            type: Array,
+            default: []
+        }
+    }
 }

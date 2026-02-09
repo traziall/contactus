@@ -63,20 +63,50 @@ export const dragHelper = {
     },
 
     /**
-     * Verifica si el drop fue dentro de un contenedor.
-     * @param {MouseEvent} event 
-     * @param {HTMLElement} dropZone 
-     * @returns {Boolean}
+     * Verifica si el drop fue dentro de una zona específica.
+     * @param {MouseEvent} event
+     * @param {{ zone: string | HTMLElement }} options
+     * @returns {{
+     *   isInside: boolean,
+     *   zoneElement: HTMLElement | null
+     * }}
      */
-    isInside(event, dropZone) {
-        const rect = dropZone.getBoundingClientRect();
+    isInside(event, zone) {
+
+        let zoneElements = [];
+
+        // Resolver tipo de zona
+        if (typeof zone === "string") {
+            zoneElements = Array.from(document.querySelectorAll(zone));
+        } else if (zone instanceof HTMLElement) {
+            zoneElements = [zone];
+        } else {
+            return { isInside: false, zoneElement: null };
+        }
+
         const { clientX, clientY } = event;
 
-        return (
-            clientX > rect.left &&
-            clientX < rect.right &&
-            clientY > rect.top &&
-            clientY < rect.bottom
-        );
+        // Buscar cuál zona contiene las coordenadas del drop
+        for (const el of zoneElements) {
+            const rect = el.getBoundingClientRect();
+
+            const inside =
+                clientX > rect.left &&
+                clientX < rect.right &&
+                clientY > rect.top &&
+                clientY < rect.bottom;
+
+            if (inside) {
+                return {
+                    isInside: true,
+                    zoneElement: el
+                };
+            }
+        }
+
+        return {
+            isInside: false,
+            zoneElement: null
+        };
     }
 };

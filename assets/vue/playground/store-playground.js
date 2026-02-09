@@ -3,6 +3,42 @@ const { defineStore } = Pinia;
 export const storeComponents = defineStore('components', {
     state: () => ({
         components: [],
+        itemsComponents: {
+            inputs: [
+                {
+                    group: 'inputs',
+                    id: 1,
+                    type: 'text',
+                    icon: 'mi-text_fields',
+                    label: 'Text Input'
+                },
+                {
+                    group: 'inputs',
+                    id: 2,
+                    type: 'number',
+                    icon: 'mi-filter_1',
+                    label: 'Number Input'
+                },
+            ],
+            output: [
+                {
+                    group: 'output',
+                    id: 1,
+                    type: 'text-out',
+                    icon: 'mi-read_more',
+                    label: 'Text Output'
+                },
+            ],
+            props: [
+                {
+                    group: 'props',
+                    id: 1,
+                    type: 'label',
+                    icon: 'mi-label',
+                    label: 'Label'
+                },
+            ]
+        },
     }),
     actions: {
         add(item) {
@@ -18,6 +54,12 @@ export const storeComponents = defineStore('components', {
             if (index !== -1) {
                 this.components[index] = { ...this.components[index], ...updatedItem };
             }
+        },
+
+        item(id) {
+            console.log(id);
+            const item = this.components.find(item => item.id === id);
+            return item;
         },
 
         remove(id) {

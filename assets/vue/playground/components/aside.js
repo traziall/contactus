@@ -1,4 +1,5 @@
 import { CollapseHelper, ElementClassToggle } from "../scripts.js";
+import { storeComponents } from "../store-playground.js";
 import { dragItems } from "./drag-items.js";
 
 export const appAside = {
@@ -29,7 +30,7 @@ export const appAside = {
                         <span>Inputs</span>
                     </button>
                     <div class="collapse-content">
-                        <drag-items></drag-items>
+                        <drag-items :items="inputs"></drag-items>
                     </div>
                 </div>
                 <div class="collapse-item">
@@ -38,7 +39,7 @@ export const appAside = {
                         <span>OutPuts</span>
                     </button>
                     <div class="collapse-content">
-                        <drag-items></drag-items>
+                        <drag-items :items="output"></drag-items>
                     </div>
                 </div>
                 <div class="collapse-item">
@@ -47,14 +48,14 @@ export const appAside = {
                         <span>Propst</span>
                     </button>
                     <div class="collapse-content">
-                        <drag-items></drag-items>
+                        <drag-items :items="props"></drag-items>
                     </div>
                 </div>
             </div>
         </div>
         <div class="collapse-footer">
-            <button type="button" class="buttom-add">
-                <i class="bi bi-plus"></i>
+            <button type="button" class="buttom-add" @click="addComponent">
+                <i class="mir mi-add"></i>
                 <span>New Custom Component</span>
             </button>
         </div>
@@ -62,6 +63,9 @@ export const appAside = {
     components: {
         "drag-items": dragItems
     },
+    data: () => ({
+        itemsComponents: storeComponents()
+    }),
     mounted() {
         this.collapse();
         this.toggle();
@@ -81,6 +85,27 @@ export const appAside = {
                 btns: '.control',
                 classToggle: 'aside-hide'
             });
+        },
+        addComponent() {
+            this.itemsComponents.add({
+                position: {
+                    x: 400,
+                    y: 200,
+                },
+                title: 'Queso con yuca',
+                assets: []
+            })
+        }
+    },
+    computed: {
+        inputs() {
+            return this.itemsComponents.itemsComponents.inputs;
+        },
+        output() {
+            return this.itemsComponents.itemsComponents.output;
+        },
+        props() {
+            return this.itemsComponents.itemsComponents.props;
         }
     }
 }

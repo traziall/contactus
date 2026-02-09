@@ -431,7 +431,9 @@ button {
 }
 .drag-items .drag-item > i {
   display: inline-block;
-  margin-right: 0.35rem;
+  margin-right: 0.5rem;
+  color: #9C9C9C;
+  font-size: 0.8rem;
 }
 .drag-items .drag-item > i:first-child {
   transform: scale(1.15);

@@ -233,7 +233,7 @@ export const launcherPlay = {
                         this.currentDrag = { id: id, item: item };
                     },
                     onDrop: (ev, el) => {
-                        if (dragHelper.isInside(ev, this.$refs.dropZoneRef)) {
+                        if (dragHelper.isInside(ev, this.$refs.dropZoneRef).isInside) {
                             this.moveToB();
                             this.pjsStore.update(this.itemsB);
                         }
