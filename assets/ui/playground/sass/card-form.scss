@@ -51,6 +51,14 @@
 
     .card-form-body {
         padding: 15px 0;
+        .card-fieldset {
+
+            label {
+                i {
+                    vertical-align: middle;
+                }
+            }
+        }
         .input {
             --input-padding: 8px;
             display: inline-flex;
@@ -60,6 +68,7 @@
             border: 1px solid var(--color-slate-200);
             border-radius: 6px;
 
+            >select,
             >input {
                 width: 100%;
                 outline: none !important;
@@ -156,6 +165,20 @@
             font-size: .8rem;
         }
     }
+
+    .zone-drop {
+        display: block;
+        padding: 10px;
+        .content {
+            border: 1px dashed #DFDFDF;
+            display: block;
+            padding: 22px 8px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            text-align: center;
+            color: #C1C1C1;
+        }
+    }
 }
 
 .card-controls {
@@ -178,6 +201,9 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+        }
+        &.red {
+            color: #FF8484;
         }
     }
 }

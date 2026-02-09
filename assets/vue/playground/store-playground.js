@@ -19,6 +19,13 @@ export const storeComponents = defineStore('components', {
                     icon: 'mi-filter_1',
                     label: 'Number Input'
                 },
+                {
+                    group: 'inputs',
+                    id: 3,
+                    type: 'select',
+                    icon: 'mi-search',
+                    label: 'Select Input'
+                },
             ],
             output: [
                 {

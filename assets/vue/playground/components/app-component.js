@@ -27,7 +27,7 @@ export const appComponent = {
                 </button>
             </li>
             <li>
-                <button type="button" class="button">
+                <button type="button" class="button red">
                     <i class="mir mi-delete"></i>
                 </button>
             </li>
@@ -44,11 +44,26 @@ export const appComponent = {
         </div>
         <ul class="card-form-body item">
             <li class="drag"></li>
-            <template v-for="item in data.assets">
+            <template v-if="data.assets.length > 0" v-for="item in data.assets">
+                <template v-if="item.type === 'select'">
+                    <li>
+                        <div class="card-fieldset">
+                            <label for="">Options <i class="mio mi-info"></i></label>
+                            <div class="input">
+                                <select>
+                                    <option value="1">Option 1</option>
+                                    <option value="2">Option 2</option>
+                                    <option value="3">Option 3</option>
+                                </select>
+                            </div>
+                        </div>
+                        <span class="badge badge-danger position-left"></span>
+                    </li>
+                </template>
                 <template v-if="item.type === 'text'">
                     <li>
                         <div class="card-fieldset">
-                            <label for="">lorem <i class="bi bi-info-circle"></i></label>
+                            <label for="">Text <i class="mio mi-info"></i></label>
                             <div class="input">
                                 <input type="text">
                                 <i class="mir mi-replay"></i>
@@ -60,10 +75,9 @@ export const appComponent = {
                 <template v-if="item.type === 'number'">
                     <li>
                         <div class="card-fieldset">
-                            <label for="">lorem <i class="bi bi-info-circle"></i></label>
+                            <label for="">Number <i class="mio mi-info"></i></label>
                             <div class="input">
                                 <input type="number">
-                                <i class="mir mi-replay"></i>
                             </div>
                         </div>
                         <span class="badge badge-success position-right"></span>
@@ -80,11 +94,20 @@ export const appComponent = {
                 <template v-if="item.type === 'text-out'">
                     <li>
                         <div class="card-fieldset">
-                            <label for="">lorem <i class="bi bi-info-circle"></i></label>
+                            <label for="">lorem <i class="mio mi-info"></i></label>
                         </div>
                         <span class="badge badge-info position-left"></span>
                     </li>
                 </template>
+            </template>
+            <template v-else>
+                <li>
+                    <div class="zone-drop">
+                        <div class="content">
+                            <span>¡Elemento Aqui!</span>
+                        </div>
+                    </div>
+                </li>
             </template>
         </ul>
     </div>`,

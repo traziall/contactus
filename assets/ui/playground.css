@@ -545,6 +545,9 @@ button {
 .card-form .card-form-body {
   padding: 15px 0;
 }
+.card-form .card-form-body .card-fieldset label i {
+  vertical-align: middle;
+}
 .card-form .card-form-body .input {
   --input-padding: 8px;
   display: inline-flex;
@@ -554,6 +557,7 @@ button {
   border: 1px solid var(--color-slate-200);
   border-radius: 6px;
 }
+.card-form .card-form-body .input > select,
 .card-form .card-form-body .input > input {
   width: 100%;
   outline: none !important;
@@ -643,6 +647,19 @@ button {
 .card-form .card-item > p {
   font-size: 0.8rem;
 }
+.card-form .zone-drop {
+  display: block;
+  padding: 10px;
+}
+.card-form .zone-drop .content {
+  border: 1px dashed #DFDFDF;
+  display: block;
+  padding: 22px 8px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  text-align: center;
+  color: #C1C1C1;
+}
 
 .card-controls {
   position: absolute;
@@ -666,6 +683,9 @@ button {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.card-controls button.red {
+  color: #FF8484;
 }
 
 .card-notifics {
