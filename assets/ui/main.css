@@ -754,6 +754,9 @@
   margin-top: 5px;
 }
 .aside-pjs > li {
+  touch-action: none;
+  -webkit-user-drag: none;
+  user-select: none;
   width: 100%;
   display: flex;
   background-color: rgba(255, 255, 255, 0.15);
