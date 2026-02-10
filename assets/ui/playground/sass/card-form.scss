@@ -67,6 +67,9 @@
             }
         }
         .zone-drag {
+            touch-action: none;
+            -webkit-user-drag: none;
+            user-select: none;
             visibility: hidden;
             font-size: 0.85rem;
             display: flex;

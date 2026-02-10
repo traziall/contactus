@@ -4,6 +4,9 @@
     }
 
     .drag-item {
+        touch-action: none;
+        -webkit-user-drag: none;
+        user-select: none;
         display: block;
         background-color: var(--color-gray-100);
         border-radius: 7px;

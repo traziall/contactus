@@ -191,6 +191,9 @@
         margin-top: 5px;
     }
     > li {
+        touch-action: none;
+        -webkit-user-drag: none;
+        user-select: none;
         width: 100%;
         display: flex;
         background-color: rgba(#fff, 0.15);

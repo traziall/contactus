@@ -17,6 +17,8 @@ export const dragHelper = {
             if (!el) return; // evita refs nulas
 
             const instance = interact(el).draggable({
+                manualStart: false,
+                hold: 0,
                 listeners: {
                     start: (event) => onStart && onStart(event, el),
                     move: (event) => {
