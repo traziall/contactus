@@ -9,11 +9,7 @@
             @apply grid grid-cols-3 gap-4 items-start min-h-20 md:min-h-full;
         }
         > ul li {
-            touch-action: none;
-            -webkit-user-drag: none;
-            user-select: none;
-
-            @apply flex items-center py-3 justify-center bg-gray-800 shadow-md rounded-md cursor-move;
+            @apply flex items-center py-3 justify-center bg-gray-800 shadow-md rounded-md cursor-move select-none lg:select-auto touch-none lg:touch-auto;
         }
     }
 }
