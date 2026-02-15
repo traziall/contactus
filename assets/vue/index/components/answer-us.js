@@ -13,8 +13,15 @@ export const tzAnswerUs = {
             <chat-question id="#us" theme="red" question="¿Quiénes somos?"></chat-question>
             <container-chat>
                 <bubble-chat classList="mb-2 animate__animated backInRight animate__fast" decoration orientation="right">
-                    <h3 class="-mt-6 mb-2 text-xl uppercase font-bold">Somos</h3>
-                    <p><strong>Yenerson Hernández</strong> y <strong>Yelainer. Hernández</strong>.</p>
+                    <!-- <h3 class="-mt-6 mb-2 text-xl uppercase font-bold">Somos</h3> -->
+                    <p>
+                        <span class="text-gray-400 mr-1">Somos el equipo de</span>
+                        <strong>Traziall</strong>
+                        <br>
+                        <strong>Yenerson</strong> <span class="text-gray-400">Hernández López</span>
+                        <span class="mx-1">&</span>
+                        <strong>Yelainer</strong> <span class="text-gray-400">Hernández López</span>
+                    </p>
                 </bubble-chat>
                 <bubble-chat classList="animate__animated backInRight animate__fast animate__delay-1">
                     <p class="text-gray-400">Desarrolladores y diseñadores con experiencia en la creación de aplicaciones progresivas eficientes y escalables. Abordamos proyectos complejos con un enfoque estructurado y orientado a resultados.</p>
