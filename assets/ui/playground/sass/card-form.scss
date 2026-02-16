@@ -34,6 +34,7 @@
     .card-form-header {
         padding: 18px;
         border-bottom: 1px solid var(--color-slate-200);
+            user-select: none;
 
         .header {
             display: flex;
@@ -115,11 +116,11 @@
         > li.drag {
             position: absolute;
             top: 5px;
-            width: 30px;
+            width: 40px;
             height: 6px;
             border-radius: 100px;
             background-color: rgba(#808080, 0.3);
-            left: calc(50% - 15px);
+            left: calc(50% - 20px);
         }
 
         > li + li {
@@ -139,6 +140,7 @@
                 outline: 2px solid var(--color-slate-200);
                 border-radius: 20px;
                 top: calc(50% - 5px);
+                cursor: pointer;
                 &.position-left {
                     left: -5px;
                 }

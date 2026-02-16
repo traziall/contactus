@@ -84,3 +84,25 @@ export const storeComponents = defineStore('components', {
         }
     }
 });
+
+export const storeConnectsLines = defineStore('connectsLines', {
+    state: () => ({
+        selectedPin: null,
+        lines: []
+    }),
+    actions: {
+        changePin(e) {
+            this.selectedPin = e;
+        },
+        addLine(obj) {
+            this.lines.push(obj);
+        },
+        removeLine(lineObj) {
+            const i = this.lines.indexOf(lineObj);
+            if (i !== -1) this.lines.splice(i, 1);
+        },
+        replaceLines(lines) {
+            this.lines = lines;
+        }
+    }
+})

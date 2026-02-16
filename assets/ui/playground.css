@@ -54,6 +54,11 @@ button {
   vertical-align: middle;
 }
 
+.z-20 {
+  position: relative;
+  z-index: 22;
+}
+
 .m-x1, .m-r1 {
   margin-right: 0.5rem;
 }
@@ -545,6 +550,7 @@ button {
 .card-form .card-form-header {
   padding: 18px;
   border-bottom: 1px solid var(--color-slate-200);
+  user-select: none;
 }
 .card-form .card-form-header .header {
   display: flex;
@@ -618,11 +624,11 @@ button {
 .card-form .card-form-body > li.drag {
   position: absolute;
   top: 5px;
-  width: 30px;
+  width: 40px;
   height: 6px;
   border-radius: 100px;
   background-color: rgba(128, 128, 128, 0.3);
-  left: calc(50% - 15px);
+  left: calc(50% - 20px);
 }
 .card-form .card-form-body > li + li {
   margin-top: 5px;
@@ -641,6 +647,7 @@ button {
   outline: 2px solid var(--color-slate-200);
   border-radius: 20px;
   top: calc(50% - 5px);
+  cursor: pointer;
 }
 .card-form .card-form-body li .badge.position-left {
   left: -5px;

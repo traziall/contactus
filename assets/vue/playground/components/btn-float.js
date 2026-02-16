@@ -5,7 +5,7 @@ export const btnFloat = {
         <span class="m-x1">Components</span>
     </button>
     <div class="buttons-playgroud">
-        <button type="button" class="button ui-basic">
+        <button type="button" class="button ui-basic" id="startTour">
             <i class="mir mi-play_arrow m-r1"></i>
             <span>Playground</span>
         </button>

@@ -54,6 +54,11 @@ button {
     vertical-align: middle;
 }
 
+.z-20 {
+    position: relative;
+    z-index: 22;
+}
+
 
 @import 'playground/sass/utilies.scss';
 @import 'playground/sass/implements.scss';

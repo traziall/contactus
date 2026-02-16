@@ -1,10 +1,10 @@
 import { interactHelper } from "../../launcher/interactHelper.js";
 import { ToggleHelper } from "../scripts.js";
-import { storeComponents } from "../store-playground.js";
+import { storeComponents, storeConnectsLines } from "../store-playground.js";
 
 export const appComponent = {
     template: /* html */`
-    <div class="card-form" :style="{ left: data.position.x + 'px', top: data.position.y + 'px' }" :data-id="data.id">
+    <div class="card-form" :style="{ left: position.x + 'px', top: position.y + 'px' }" :data-id="data.id">
         <ul class="card-controls">
             <li>
                 <button type="button" class="button">
@@ -55,7 +55,7 @@ export const appComponent = {
                                 </select>
                             </div>
                         </div>
-                        <span class="badge badge-danger position-left"></span>
+                        <span class="badge badge-danger position-left" @click="connectPin($event)"></span>
                         <span class="zone-drag">
                             <i class="mir mi-drag_indicator"></i>
                         </span>
@@ -70,7 +70,7 @@ export const appComponent = {
                                 <i class="mir mi-replay"></i>
                             </div>
                         </div>
-                        <span class="badge badge-danger position-left"></span>
+                        <span class="badge badge-danger position-left" @click="connectPin($event)"></span>
                         <span class="zone-drag">
                             <i class="mir mi-drag_indicator"></i>
                         </span>
@@ -84,7 +84,7 @@ export const appComponent = {
                                 <input type="number">
                             </div>
                         </div>
-                        <span class="badge badge-success position-right"></span>
+                        <span class="badge badge-success position-right" @click="connectPin($event)"></span>
                         <span class="zone-drag">
                             <i class="mir mi-drag_indicator"></i>
                         </span>
@@ -104,7 +104,7 @@ export const appComponent = {
                 <template v-if="item.type === 'text-out'">
                     <li>
                         <div class="card-fieldset">
-                            <label for="">Title <i class="mio mi-info"></i></label>
+                            <label for="">Title <i class="mio mi-info" @click="connectPin($event)"></i></label>
                             <p>lorem</p>
                         </div>
                         <span class="badge badge-info position-left"></span>
@@ -126,7 +126,12 @@ export const appComponent = {
         </ul>
     </div>`,
     data: () => ({
-        components: storeComponents()
+        components: storeComponents(),
+        connectsLines: storeConnectsLines(),
+        position: {
+            x: 400,
+            y: 200
+        }
     }),
     props: {
         data: {
@@ -150,19 +155,71 @@ export const appComponent = {
                 onStart: () => {
                     elements.classList.add('user-none');
                 },
-                onEnd: () => {
+                onMove: () => {
+                    this.updatePinsLine();
+                },
+                onEnd: (e) => {
                     elements.classList.remove('user-none');
+                    this.updatePinsLine();
                 }
             });
         },
         remove() {
-            this.components.remove(this.data.id)
+            const linesToRemove = this.connectsLines.lines.filter(l => {
+                const comp = this.$el;
+                return comp.contains(l.pinA) || comp.contains(l.pinB);
+            });
+
+            linesToRemove.forEach(l => {
+                l.line.remove()
+            });
+
+            const lines = this.connectsLines.lines.filter(
+                l => !linesToRemove.includes(l)
+            );
+            this.connectsLines.replaceLines(lines);
+            this.components.remove(this.data.id);
         },
         sortable() {
             new Sortable(this.$el.querySelector(".card-form-body"), {
               animation: 150,
               handle: ".zone-drag",
             });
+        },
+        connectPin(e) {
+            let pin = e.target;
+            let selectedPin = this.connectsLines.selectedPin;
+            if (!selectedPin) {
+                this.connectsLines.changePin(pin);
+                pin.style.boxShadow = "0 0 0 10px rgb(255 132 132 / 0.75)";
+            } else {
+                if (selectedPin.classList.contains("position-left") === pin.classList.contains("position-left")) {
+                    console.warn("Conexión inválida");
+                    this.connectsLines.changePin(null);
+                } else {
+                    this.connectPins(selectedPin, pin);
+                }
+                selectedPin.style.boxShadow = "";
+                selectedPin = null;
+            }
+        },
+        connectPins(pinA, pinB) {
+            const line = new LeaderLine(
+                LeaderLine.pointAnchor(pinA),
+                LeaderLine.pointAnchor(pinB),
+                {
+                    color: "#95A0B1",
+                    size: 3,
+                    path: "grid",
+                    endPlug: "arrow3"
+                }
+            );
+            this.connectsLines.addLine({ pinA, pinB, line });
+        },
+        updatePinsLine() {
+            for (const c of this.connectsLines.lines) {
+                c.line.position();
+            }
         }
     }
 }
